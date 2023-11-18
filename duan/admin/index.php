@@ -1,0 +1,173 @@
+<?php
+include "../model/pdo.php";
+include "../model/danhmuc.php";
+include "../model/sanpham.php";
+include "../model/thongke.php";
+include "../model/taikhoan.php";
+include "../model/binhluan.php";
+include "../model/cart.php";
+    include "header.php";
+    if(isset($_GET['act'])&&($_GET['act']!="")){
+        $act=$_GET['act'];
+        switch($act){
+            case "listsp":
+                if(isset($_POST['clickOK'])&&($_POST['clickOK'])){
+                 $keyw=$_POST['keyw'];
+                 $iddm=$_POST['iddm'];
+                }else{
+                    $keyw="";
+                    $iddm=0;
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham($keyw,$iddm);
+                include "sanpham/list.php";
+                break;
+            case "bieudosp":
+                $listsanpham=loadall_sanpham();
+                include "sanpham/bieudo.php";
+                break;
+            case "addsp":
+                if(isset($_POST['themmoi'])&&$_POST['themmoi']){
+                      
+                    $iddm=$_POST['iddm'];
+                    $tensp=$_POST['tensp'];
+                    $giasp=$_POST['giasp'];
+                    $mota=$_POST['mota'];
+                    $material=$_POST['material'];
+                    $size=$_POST['size'];
+                    $quantity=$_POST['quantity'];
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir="../upload/";
+                    $target_file=$target_dir.basename($_FILES['hinh']['name']);
+                    move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file);
+                    if(!empty($iddm)&&!empty($tensp)&&!empty($giasp)&&!empty($mota)&&!empty($hinh)&&!empty($material)&&!empty($size)&&!empty($quantity)){  
+                        insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm);
+                        echo "<p style='color:red'>ban da upload anh thanh cong</p>";
+                    }else{
+                        echo "<p style='color:red'>khong thanh cong</p>";
+                    };
+                    
+                }
+                
+                $listdanhmuc=loadall_danhmuc();
+                include "sanpham/add.php";
+                break;  
+            
+            case "suasp":
+
+                if(isset($_GET['idsp'])&&($_GET['idsp'])>0){
+                    $sanpham=loadone_sanpham($_GET['idsp']);
+                }
+                $listdanhmuc=loadall_danhmuc();
+                include "sanpham/update.php";
+                break; 
+            case "updatesp":
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $iddm=$_POST['iddm'];
+                    $id=$_POST['id'];
+                    $tensp=$_POST['tensp'];
+                    $giasp=$_POST['giasp'];
+                    $mota=$_POST['mota'];
+                    $material=$_POST['material'];
+                    $size=$_POST['size'];
+                    $quantity=$_POST['quantity'];
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir="../upload/";
+                    $target_file=$target_dir.basename($_FILES['hinh']['name']);
+                    if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
+                        echo " Thành Công ";
+                    }else{
+                        echo " Lỗi";
+                    }
+                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh,);
+                    $thongbao="Cập Nhật Thành Công";
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham();
+                include "sanpham/list.php";
+                break;
+            case "hard_delete":
+                if(isset($_GET['idsp'])){
+                    hard_delete($_GET['idsp']);
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham("",0);
+                include "sanpham/list.php";
+                break;
+            case "soft_delete":
+                if(isset($_GET['idsp'])){
+                    soft_delete($_GET['idsp']);
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham("",0);
+                include "sanpham/list.php";
+                break;
+            case "thongke":
+                $dsthongke=load_thongke_sanpham_danhmuc();
+                include "thongke/list.php";
+                break;
+            case "thongkebl":
+                $dsthongkebl=load_thongke_binhluan();
+                include "thongke/thongkebl.php";
+                break;
+            case "xoabl":
+                if(isset($_GET['id'])){
+                    delete_binhluan($_GET['id']);
+                }
+                $dsthongkebl=load_thongke_binhluan();
+                header("location:index.php?act=thongkebl");
+                break;
+            case "bieudo":
+                $dsthongke=load_thongke_sanpham_danhmuc();
+                include "thongke/bieudo.php";
+                break; 
+            case "dangxuat":
+                dangxuat();
+                // include "view/home.php";
+                header("location:../index.php");
+                break;
+            case "dangkyadmin":
+                if(isset($_POST['dangky'])){
+                    $email=$_POST['email'];
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    insert_taikhoanadmin($email,$user,$pass);
+                    $thongbao="dang ky thanh cong";
+                }
+                include "sanpham/dangky.php";
+                break;
+            case "quanlitaikhoan":
+                $dsthongketk=load_thongke_taikhoan();
+                include "thongke/thongketk.php";
+                break;
+            case "xoatk":
+                if(isset($_GET['id'])){
+                    delete_taikhoan($_GET['id']);
+                }
+                $dsthongketk=load_thongke_taikhoan();
+                header("location:index.php?act=quanlitaikhoan");
+                break;
+            case "listbill":
+                if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                    $kyw=$_POST["kyw"];
+                }else{
+                    $kyw="";
+                }
+                $listbill=loadall_bill($kyw,0);
+                include "bill/listbill.php";
+                break;
+        }
+    }else{
+        if(isset($_POST['clickOK'])&&($_POST['clickOK'])){
+            $keyw=$_POST['keyw'];
+            $iddm=$_POST['iddm'];
+           }else{
+               $keyw="";
+               $iddm=0;
+           }
+        $listdanhmuc=loadall_danhmuc();
+        $listsanpham=loadall_sanpham($keyw,$iddm);
+        include "sanpham/list.php";
+    }
+    include "footer.php";
+?>
