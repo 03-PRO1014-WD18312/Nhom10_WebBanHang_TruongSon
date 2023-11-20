@@ -38,7 +38,11 @@ function loadall_sanpham($keyw="",$iddm=0){
 
 // 
 
-
+function loadone_sanpham($id){
+    $sql = "select * from sanpham where id = $id";
+    $result = pdo_query_one($sql);
+    return $result;
+}
 function insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm){
     $sql="INSERT INTO sanpham(`name`,`price`,`img`,`mota`,`material`,`size`,`quantity`,`iddm`) values ('$tensp','$giasp','$hinh','$mota','$material','$size','$quantity','$iddm');";
     pdo_execute($sql);
