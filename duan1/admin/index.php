@@ -48,9 +48,39 @@ include "../model/sanpham.php";
                 break;  
             
             case "suasp":
+                if(isset($_GET['idsp'])&&($_GET['idsp'])>0){
+                    $sanpham=loadone_sanpham($_GET['idsp']);
+                }
+                $listdanhmuc=loadall_danhmuc();
+                include "sanpham/update.php";
+                break; 
 
     
             case "updatesp":
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $iddm=$_POST['iddm'];
+                    $id=$_POST['id'];
+                    $tensp=$_POST['tensp'];
+                    $giasp=$_POST['giasp'];
+                    $mota=$_POST['mota'];
+                    $material=$_POST['material'];
+                    $size=$_POST['size'];
+                    $quantity=$_POST['quantity'];
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir="../upload/";
+                    $target_file=$target_dir.basename($_FILES['hinh']['name']);
+                    if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
+                        echo " Thành Công ";
+                    }else{
+                        echo " Lỗi";
+                    }
+                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh,);
+                    $thongbao="Cập Nhật Thành Công";
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham();
+                include "sanpham/list.php";
+                break;
                 
             case "hard_delete":
                 if(isset($_GET['idsp'])){
