@@ -22,11 +22,12 @@
         <div class="row mb menu">
             <ul>
                 
-              <li><a href="?act=listsp">Trang chủ</a></li>
-              <li><a href="?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
-              <li><a href="?act=bieudosp">Biểu Đồ Bình luận</a></li>
-              <li><a href="?act=thongke">Thống kê</a></li>
-              <li><a href="?act=thongkebl">Bình Luận</a></li>
+              <li><a href="index.php?act=listsp">Trang chủ</a></li>
+              <li><a href="index.php?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
+              <li><a href="index.php?act=bieudosp">Biểu Đồ Bình luận</a></li>
+              <li><a href="index.php?act=thongke">Thống kê</a></li>
+              <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
+              <li><a href="index.php?act=listdm">Danh muc</a></li>
             </ul>
         </div>
         <div class="truong">

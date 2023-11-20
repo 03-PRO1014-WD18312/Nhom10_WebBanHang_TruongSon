@@ -52,7 +52,7 @@
                 <td>'.$price.'</td>
                 <td>'.$hinhpath.'</td>
                 <td>'.$luotxem.'</td>
-                
+                <td>'.$quantity.'</td>
                 <td>'.$soBinhLuan.'</td>
                 <td>
                 <a href="'.$suasp.'">         <input type="button" value="Sửa">    </a>

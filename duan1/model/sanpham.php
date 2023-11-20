@@ -4,11 +4,7 @@ function loadall_sanpham_home(){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
-function loadall_sanpham_top10(){
-    $sql="select * from sanpham where 1 order by luotxem desc limit 0,5";
-    $listsanpham=pdo_query($sql);
-    return $listsanpham;
-}
+
 function loadall_sanpham($keyw="",$iddm=0){
     $sql="SELECT sanpham.*,COUNT(binhluan.id) as soBinhLuan 
     from sanpham 
@@ -41,28 +37,13 @@ function loadall_sanpham($keyw="",$iddm=0){
 // }
 
 // 
-function loadone_sanpham($id){
-    $sql = "select * from sanpham where id = $id";
-    $result = pdo_query_one($sql);
-    return $result;
-}
-function load_sanpham_cungloai($id, $iddm){
-    $sql = "select * from sanpham where iddm = $iddm and id <> $id";
-    $result = pdo_query($sql);
-    return $result;
-}
+
+
 function insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm){
     $sql="INSERT INTO sanpham(`name`,`price`,`img`,`mota`,`material`,`size`,`quantity`,`iddm`) values ('$tensp','$giasp','$hinh','$mota','$material','$size','$quantity','$iddm');";
     pdo_execute($sql);
 }
-function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh){
-    if($hinh!=""){
-        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
-    }else{
-        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
-    }
-    pdo_execute($sql);
-}
+
 
 function hard_delete($id){
     $sql= "DELETE FROM sanpham WHERE id=".$id;

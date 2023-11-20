@@ -1,10 +1,10 @@
 <?php
 function pdo_get_connection(){
     $servername = "localhost";
-    $username = "truonghayho";
+    $username = "php1";
     $password = "";
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=duan2023", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=duan1", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch(PDOException $e) {
