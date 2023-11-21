@@ -121,11 +121,32 @@ include "../model/sanpham.php";
                 include "danhmuc/listdm.php";
                 break;
             case "adddm":
-                
+                if(isset($_POST['themmoi'])&&$_POST['themmoi']){
+                    $name=$_POST['name'];
+                    if(!empty($name)){  
+                        insert_danhmuc($name);
+                        echo "<p style='color:red'>ban da upload anh thanh cong</p>";
+                    }else{
+                        echo "<p style='color:red'>khong thanh cong</p>";
+                    };
+                    
+                }
             case "suadm":
-               
+                if(isset($_GET['iddm'])&&($_GET['iddm'])>0){
+                    $danhmuc=loadone_danhmuc($_GET['iddm']);
+                }
+                include "danhmuc/update.php";
+                break; 
             case "updatedm":
-               
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $name=$_POST['tendm'];
+                    $id=$_POST['id'];
+                    update_danhmuc($id,$name);
+                    $thongbao="Cập Nhật Thành Công";
+                }
+                $danhmuc=load_thongke_sanpham_danhmuc();
+                include "danhmuc/listdm.php";
+                break;
             case "delete_dm":
                 if(isset($_GET['iddm'])){
                     delete_dm($_GET['iddm']);
