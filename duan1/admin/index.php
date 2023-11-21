@@ -117,7 +117,9 @@ include "../model/sanpham.php";
             case "listbill":
                 
             case "listdm":
-                
+                $danhmuc=load_thongke_sanpham_danhmuc();
+                include "danhmuc/listdm.php";
+                break;
             case "adddm":
                 
             case "suadm":
@@ -125,7 +127,12 @@ include "../model/sanpham.php";
             case "updatedm":
                
             case "delete_dm":
-                
+                if(isset($_GET['iddm'])){
+                    delete_dm($_GET['iddm']);
+                }
+                $danhmuc=load_thongke_sanpham_danhmuc();
+                include "danhmuc/listdm.php";
+                break; 
         }
     }else{
         if(isset($_POST['clickOK'])&&($_POST['clickOK'])){

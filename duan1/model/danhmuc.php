@@ -15,3 +15,7 @@ function loadall_danhmuc(){
 //         return "";
 //     }
 // }
+function delete_dm($id){
+    $sql= "DELETE FROM danhmuc WHERE id=".$id;
+    pdo_execute($sql);
+}
