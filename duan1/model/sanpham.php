@@ -4,7 +4,11 @@ function loadall_sanpham_home(){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
-
+function loadall_sanpham_top10(){
+    $sql="select * from sanpham where 1 order by luotxem desc limit 0,5";
+    $listsanpham=pdo_query($sql);
+    return $listsanpham;
+}
 function loadall_sanpham($keyw="",$iddm=0){
     $sql="SELECT sanpham.*,COUNT(binhluan.id) as soBinhLuan 
     from sanpham 
