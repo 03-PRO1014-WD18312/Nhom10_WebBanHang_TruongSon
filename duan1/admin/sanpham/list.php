@@ -1,13 +1,13 @@
 <div class="row2">
          <div class="row2 font_title">
-          <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
+          <h1 style="text-align: center">DANH SÁCH LOẠI HÀNG HÓA</h1>
          </div>
          <div class="row2 form_content ">
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
             <form action="index.php?act=listsp" method="post">
-                <input type="text" name="keyw">
-                <select name="iddm" id="">
+                <input type="text" hidden="" name="keyw">
+                <select name="iddm" id="" style=" width: 50%;padding: 10px;margin-bottom: 10px;border: 1px solid #ddd;border-radius: 4px;box-sizing: border-box;margin-left: 360px">
                     <option value="" selected>Danh Mục</option>
                     <?php
                     foreach($listdanhmuc as $danhmuc){
@@ -16,20 +16,20 @@
                     }
                     ?>
                 </select>
-                <input type="submit" name="clickOK" value="GO">
+                <input type="submit" name="clickOK" value="Tìm Kiếm">
             </form>
            <table border="1">
            <tr>
                 <th></th>
                 <th>Mã SP</th>
-                <th>Tên SP</th>
-                <th>size</th>
-                <th>chat lieu</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Kích Cỡ</th>
+                <th>Chất Liệu</th>
                 <th>Giá</th>
-                <th>Image</th>
-                <th>View</th>
-                <th>quantity</th>
-                <th>Comment quantity</th>
+                <th>Hinh Ảnh</th>
+                <th>Lượt Xem</th>
+                <th>Số Lượng</th>
+                <th>Só Lượng Bình Luận</th>
                 <th>Thao tác</th>
             </tr>
             <?php foreach($listsanpham as $sanpham){
