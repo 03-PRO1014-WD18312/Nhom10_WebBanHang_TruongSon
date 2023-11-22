@@ -15,9 +15,9 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="index.php">Danh Mục</a></li>
+                <li><a href="index.php">Sản Phẩm</a></li>
                 <li class="dropdown">
-                    <a class="dropdownbtn" href="index.php?act=sanpham">Sản Phẩm</a>
+                    <a class="dropdownbtn" href="index.php?act=sanpham">Danh Mục</a>
                     <div class="dropdown_content">
                         <?php
                         foreach ($dsdm as $dm){
