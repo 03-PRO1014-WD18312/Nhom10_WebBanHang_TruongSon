@@ -16,6 +16,7 @@ session_start();
       $_SESSION['email'] = $email;
       $_SESSION['address']=$address;
       $_SESSION['tel']=$tel;
+      $_SESSION['role']=$role;
    }else{
       return "thong tin tai khoan khong dung";
    }

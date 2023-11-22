@@ -31,8 +31,8 @@
                
             case "sanphamct":
                 if(isset($_POST['guibinhluan'])){
-                    if(isset($_SESSION['idkh'])){
-                        insert_binhluan($_POST['idpro'], $_POST['noidung'],$_SESSION['idkh']);
+                    if(isset($_SESSION['iduser'])){
+                        insert_binhluan($_POST['idpro'], $_POST['noidung'],$_SESSION['iduser']);
                     }else{
                         echo "may chua dang nhap";
                     }

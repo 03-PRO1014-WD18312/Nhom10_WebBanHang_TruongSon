@@ -1,3 +1,6 @@
+<?php    
+                if(isset($_SESSION['user'])) { echo '<a href="index.php?act=dangxuat">dang xuat</a>';} else{
+                ?>
 <div class="body" >
     <div class="container1" id="container">
         <div class="form-container sign-in">
@@ -54,3 +57,4 @@
     </div>
     </div>
     <script src="./js/form.js"></script>
+    <?php } ?>
