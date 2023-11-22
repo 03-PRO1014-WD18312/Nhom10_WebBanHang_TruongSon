@@ -1,7 +1,7 @@
 <footer>
             <div class="footer">
                 <div>
-                    <img src="img/logo.jpg" alt="" width="250px" height="250px" style="margin-top: 10px;">
+                    <img src="./img/logo.jpg" alt="" width="250px" height="250px" style="margin-top: 10px;">
                 </div>
                 <div class="thongtin">
                     <h2>NỘI THẤT Shion</h2>

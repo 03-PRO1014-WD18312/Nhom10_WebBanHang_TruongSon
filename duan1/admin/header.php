@@ -1,43 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án mẫu</title>
-    <link rel="stylesheet" href="../css/css.css">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-     
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <div class="boxcenter">
-       <!-- BIGIN HEADER -->
-       <header>
-        <div class="row mb header_admin">
-            <h1>Admin</h1>
+<div class="container">
+    <nav>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="">
         </div>
-        <div class="row mb menu">
-            <ul>
-                
-              <li><a href="index.php?act=listsp">Trang chủ</a></li>
-              <li><a href="index.php?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
-              <li><a href="index.php?act=bieudosp">Biểu Đồ Bình luận</a></li>
-              <li><a href="index.php?act=thongke">Thống kê</a></li>
-              <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
-              <li><a href="index.php?act=listdm">Danh muc</a></li>
-            </ul>
-        </div>
-        <div class="truong">
-            <div class="truong1">
-                <div class="running-text">
-                    
-                    chào mừng các bạn đến với trang web của chúng tôi,chúng tôi hân hạnh kính chào bạn
-                    
+        <ul class="nav-menu">
+            <li><a href="index.php?act=listsp">Trang chủ</a></li>
+            <li class="dropdown">
+                <a class="dropdownbtn" href="index.php?act=listdm">Danh Mục</a>
+                <div class="dropdown_content">
+                    <?php
+                    foreach ($dsdm as $dm){
+                        extract($dm);
+                        $linkdm="index.php?act=sanpham&iddm=".$id;
+                        echo '<a href="'.$linkdm.'">'.$name.'</a>';
+                    }
+                    ?>
                 </div>
+            </li>
+            <li><a href="">Biểu Đồ Sản Phẩm</a></li>
+            <li><a href="">Biểu Đồ Bình luận</a></li>
+            <li><a href="">Thống kê</a></li>
+            <li><a href="">Bình Luận</a></li>
+
+        </ul>
+        <ul class="nav-right">
+            <form class="f1" action="index.php?act=sanpham" method="POST">
+                <input type="text" placeholder="Bạn Muốn Tìm Kiếm..." name="keyword" required>
+                <input class="sub" type="submit" value="Tìm Kiếm">
+            </form>
+            <a href="index.php?act=viewcart"><img class="img1" src="../img/logoshop.jpg" alt=""></a>
+            <a href="index.php?act=dangky"><img class="img1" src="../img/logouser.jpg" alt=""></a>
+        </ul>
+    </nav>
+    <div class="navbar">
+        <div class="navbar1">
+            <div class="running-text">
+                    <span>Chào mừng bạn đến với trang web bán hàng của chúng tôi!
+                        Chúng tôi rất vui mừng bạn đã ghé thăm và quan tâm đến các sản phẩm mà chúng tôi cung cấp.</span>
             </div>
         </div>
-       </header>
-        <!-- END HEADER -->
+    </div>
