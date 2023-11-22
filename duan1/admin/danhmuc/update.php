@@ -6,7 +6,7 @@ if(isset($danhmuc)){
 ?>
 <div class="row2">
          <div class="row2 font_title">
-          <h1>cap nhat danh muc </h1>
+          <h1>Cập NHật Danh Mục </h1>
          </div>
          <div class="row2 form_content ">
           <form action="index.php?act=updatedm" method="POST" enctype="multipart/form-data">

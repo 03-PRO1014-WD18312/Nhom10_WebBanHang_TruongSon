@@ -3,8 +3,8 @@
         </div>
         <div class="a1">
             <div class="a2">
-                <img class="img2" src="img/giaohang.jpg" alt="" width="100px" height="100px">
-                <h4>GIao Hàng TOàn Quốc</h4>
+                <img class="img2" src="img/giaohang.jpg" alt="" width="150px" height="150px">
+                <h4>GIao Hàng Toàn Quốc</h4>
                 <p>Vặn Chuyển Khắp Việt Nam</p>
             </div>
             <div  class="a2">
@@ -38,7 +38,7 @@
                   $hinh =  $img_path.$img;
                   $linksp="index.php?act=sanphamct&idsp=".$id;
                   echo '<div class="sanpham1"> 
-                            <img src="'.$hinh.'" alt="">
+                            <img style="border-radius: 15px"  src="'.$hinh.'" alt="">
                             <div>
                                 <div class="sanpham3">
                                     <a href="'. $linksp .'"><h3>'.$name.'</h3></a>
@@ -73,16 +73,20 @@
                 <h1>Top Sản Phẩm Nhiều Người Xem</h1>
                 <li><a href="#">Xem Thêm</a></li>
             </div> 
-            <div class="sanpham">
+            <div class="sanpham1">
                     <?php
                     foreach($dstop10 as $sp){
                     extract($sp);
                     $linksp="index.php?act=sanphamct&idsp=".$id;
                     $hinh=$img_path.$img;
                     echo '<div class="sanpham1">
-                    <img src="'.$hinh.'" alt="">
-                    <a href="'.$linksp.'"><h3>'.$name.'</h3></a>
-                    <p class="p1"><del>'.$old_price.'</del>-'.$price.'</p>
+                    <div>
+                    <img style="border-radius: 15px" src="'.$hinh.'" alt="">
+                    <div class="sanpham3">
+                        <a href="'.$linksp.'"><h3>'.$name.'</h3></a>
+                        <p class="p1"><del>'.$old_price.'</del>-'.$price.'</p>
+                    </div>
+                    <div class="sanpham3">
                     <form action="index.php?act=addtocart" method="post">
                         <input type="hidden" name="id" value="'.$id.'" >
                         <input type="hidden" name="name" value="'.$name.'" >
@@ -97,6 +101,8 @@
                         <input type="hidden" name="price" value="'.$price.'" >
                         <input type="submit" name="addtocart" value="mua ngay">
                         </form>
+                        </div>
+                        </div>
                     </div>';
                     }
                     ?>

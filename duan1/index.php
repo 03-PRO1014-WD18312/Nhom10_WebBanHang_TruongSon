@@ -3,7 +3,8 @@
     include "model/sanpham.php";
     include "model/danhmuc.php";
     include "global.php";
-    
+
+    $dsdm = loadall_danhmuc();
     $spnew = loadall_sanpham_home();
     $dstop10 = loadall_sanpham_top10();
     include "view/header.php";

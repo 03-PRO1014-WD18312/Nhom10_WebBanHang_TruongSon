@@ -2,6 +2,9 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/thongke.php";
+
+    $dsdm = loadall_danhmuc();
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -22,7 +25,6 @@ include "../model/sanpham.php";
                 
             case "addsp":
                 if(isset($_POST['themmoi'])&&$_POST['themmoi']){
-                      
                     $iddm=$_POST['iddm'];
                     $tensp=$_POST['tensp'];
                     $giasp=$_POST['giasp'];
@@ -99,23 +101,23 @@ include "../model/sanpham.php";
                 include "sanpham/list.php";
                 break;
             case "thongke":
-                
+
             case "thongkebl":
-                
+
             case "xoabl":
-               
+
             case "bieudo":
-               
+
             case "dangxuat":
-                
+
             case "dangkyadmin":
-               
+
             case "quanlitaikhoan":
-                
+
             case "xoatk":
-                
+
             case "listbill":
-                
+
             case "listdm":
                 $danhmuc=load_thongke_sanpham_danhmuc();
                 include "danhmuc/listdm.php";
@@ -131,6 +133,7 @@ include "../model/sanpham.php";
                     };
                     
                 }
+                break;
             case "suadm":
                 if(isset($_GET['iddm'])&&($_GET['iddm'])>0){
                     $danhmuc=loadone_danhmuc($_GET['iddm']);

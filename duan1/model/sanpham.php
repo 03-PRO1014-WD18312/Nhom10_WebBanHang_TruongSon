@@ -1,11 +1,11 @@
 <?php
 function loadall_sanpham_home(){
-    $sql="select * from sanpham where 1 order by id asc limit 0,5";
+    $sql="select * from sanpham where 1 order by id asc limit 0,4";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
 function loadall_sanpham_top10(){
-    $sql="select * from sanpham where 1 order by luotxem desc limit 0,5";
+    $sql="select * from sanpham where 1 order by luotxem desc limit 0,4";
     $listsanpham=pdo_query($sql);
     return $listsanpham;
 }
