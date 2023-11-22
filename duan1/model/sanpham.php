@@ -47,6 +47,11 @@ function loadone_sanpham($id){
     $result = pdo_query_one($sql);
     return $result;
 }
+function load_sanpham_cungloai($id, $iddm){
+    $sql = "select * from sanpham where iddm = $iddm and id <> $id";
+    $result = pdo_query($sql);
+    return $result;
+}
 function insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm){
     $sql="INSERT INTO sanpham(`name`,`price`,`img`,`mota`,`material`,`size`,`quantity`,`iddm`) values ('$tensp','$giasp','$hinh','$mota','$material','$size','$quantity','$iddm');";
     pdo_execute($sql);
