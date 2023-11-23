@@ -40,7 +40,7 @@
                 <input class="sub" type="submit" value="Tìm Kiếm">
             </form>
             <a href="index.php?act=viewcart"><img class="img1" src="../img/logoshop.jpg" alt=""></a>
-            <a href="index.php?act=dangky"><img class="img1" src="../img/logouser.jpg" alt=""></a>
+            <a style="color:#fff; margin-top:25px" href="http://localhost/Duan/Nhom10_WebBanHang_TruongSon/duan1/index.php?act=dangxuat">Đăng Xuất</a>aaaa
         </ul>
     </nav>
     <div class="navbar">

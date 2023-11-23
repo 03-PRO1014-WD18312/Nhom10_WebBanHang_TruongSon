@@ -108,8 +108,6 @@ include "../model/thongke.php";
 
             case "bieudo":
 
-            case "dangxuat":
-
             case "dangkyadmin":
 
             case "quanlitaikhoan":
