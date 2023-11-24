@@ -4,6 +4,7 @@
     include "model/danhmuc.php";
     include "model/binhluan.php";
     include "model/taikhoan.php";
+    include "model/cart.php";
     include "global.php";
 
     $dsdm = loadall_danhmuc();
@@ -89,17 +90,84 @@
                 }
                 include "view/login/quenmk.php";
             case "addtocart":
-                
+                if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
+                    if(isset($_SESSION['user'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=1;
+                    $ttien=$soluong*$price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                }else{
+                    header("location:index.php?act=dangnhap");
+                }
+            }
+                include "view/cart/viewcart.php";
+                break;
             case "delcart":
-                
+                if(isset($_GET['idcart'])) {
+                    array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                }else{
+                    $_SESSION['mycart']=[];
+                }
+                header("location:index.php?act=viewcart");
+                break;
             case "viewcart":
-                
+                include "view/cart/viewcart.php";
+                break;
             case "bill":
-                
+                if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
+                    if(isset($_SESSION['user'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=1;
+                    $ttien=$soluong*$price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                }else{
+                    header("location:index.php?act=dangnhap");
+                }
+                }
+                include "view/cart/bill.php";
+                break;
             case "billconfirm":
-               
+                if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {
+                    if(isset($_SESSION['user'])) { $iduser = $_SESSION['iduser']; }else{ $iduser = 0; }
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['pttt'];
+                    $ngaydathang = date('Y-m-d');
+                    $tongdonhang=tongdonhang();
+                    if(!empty($name)&&!empty($email)&&!empty($address)&&!empty($tel)&&!empty($pttt)&&!empty($ngaydathang)&&($tongdonhang>0)){
+                    $idbill=insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+                    foreach($_SESSION['mycart'] as $cart){
+                        insert_cart($_SESSION['iduser'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                    }
+                    $_SESSION["mycart"]=[];
+                    $bill=loadone_bill($idbill);
+                    $billct=loadall_cart($idbill);
+                    include "view/cart/billconfirm.php";
+                    }else{
+                        echo "k hop le";
+                    }
+                
+            }
+            
+                break;
             case "mybill":
-               
+                if(isset($_SESSION['iduser'])){
+                    $listbill=loadall_bill();
+                    include "view/cart/mybill.php";
+                    }else{
+                        header("location:index.php?act=dangnhap");
+                    }
+                    break;
         }
             
     }else{
