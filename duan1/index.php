@@ -10,6 +10,9 @@
     $dsdm = loadall_danhmuc();
     $spnew = loadall_sanpham_home();
     $dstop10 = loadall_sanpham_top10();
+    if (!isset($_SESSION["mycart"])){
+        $_SESSION["mycart"]=[];
+    }
     include "view/header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -89,6 +92,7 @@
                     $sendMailMess=sendMail($email);
                 }
                 include "view/login/quenmk.php";
+                break;
             case "addtocart":
                 if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
                     if(isset($_SESSION['user'])){
@@ -162,7 +166,7 @@
                 break;
             case "mybill":
                 if(isset($_SESSION['iduser'])){
-                    $listbill=loadall_bill();
+                    $listbill=loadall_bill("",$_SESSION['iduser']);
                     include "view/cart/mybill.php";
                     }else{
                         header("location:index.php?act=dangnhap");

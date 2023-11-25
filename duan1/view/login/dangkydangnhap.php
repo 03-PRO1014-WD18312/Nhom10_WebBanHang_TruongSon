@@ -1,5 +1,45 @@
+
 <?php    
-                if(isset($_SESSION['user'])) { echo '<a href="index.php?act=dangxuat">dang xuat</a>';} else{
+                if(isset($_SESSION['user'])) { echo '
+                    
+                    <div class="row2">
+         <div class="row2 font_title">
+          <h1>Thông Tin Tài Khoản</h1>
+         </div>
+         <div class="row2 form_content ">
+          <form action="" >
+          <div class="row2 mb10">
+           <div class="row2 mb10 form_content_container">
+           <label> Tên tài Khoản</label> <br>
+            <input type="text" name="tensp" >
+           </div>
+           <div class="row2 mb10">
+            <label>Tên Người Dùng</label> <br>
+            <input type="text" name="size" >
+           </div>
+           <div class="row2 mb10">
+            <label>Email</label> <br>
+            <input type="text" name="giasp" >
+           </div>
+           <div class="row2 mb10">
+            <label>Địa Chỉ</label> <br>
+            <input type="text" name="material" >
+           </div>
+           <div class="row2 mb10">
+            <label>Số Điện Thoại</label> <br>
+            <input type="text" name="quantity" >
+           </div>
+           <div class="row mb10 ">
+         <input type="hidden" name="id" value="<?=$id?>">          
+         <a href="index.php?act=dangxuat"><input  class="mr20" type="button" value="Đăng Xuất"></a>
+           </div>
+          </form>
+         </div>
+        </div>
+
+
+                    ';
+                } else{    
                 ?>
 <div class="body" >
     <div class="container1" id="container">

@@ -93,6 +93,14 @@ function insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tong
     //die;
     return pdo_execute_return_lastInsertId($sql);
 }
+function update_bill($id,$bill_status){
+    
+    $sql="UPDATE bill SET `bill_status`='$bill_status' where `id`=$id";
+    
+    //echo $sql;
+    //die;
+    return pdo_execute_return_lastInsertId($sql);
+}
 
 
 function insert_cart($iduser,$idpro,$img,$name,$price,$soluong,$thanhtien,$idbill){
@@ -119,10 +127,16 @@ function loadall_cart_count($idbill){
     $bill = pdo_query($sql);
     return sizeof($bill);
 }
-function loadall_bill(){
+function loadall_bill($kyw="",$iduser){
 
     $sql="select * from bill where 1";
-    
+    if($iduser>0){
+        $sql.=" AND iduser= $iduser";
+        }
+        if($kyw!=""){
+            $sql.=" AND id like '%".$kyw."%'";
+        }
+        $sql.=" order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
