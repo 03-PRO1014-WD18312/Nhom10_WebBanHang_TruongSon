@@ -28,6 +28,7 @@
                     ?>
                 </div>
             </li>
+            <li><a href="index.php?act=listbill">bill</a></li>
             <li><a href="">Biểu Đồ Sản Phẩm</a></li>
             <li><a href="">Biểu Đồ Bình luận</a></li>
             <li><a href="">Thống kê</a></li>
