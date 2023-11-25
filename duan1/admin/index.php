@@ -3,7 +3,9 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/thongke.php";
-
+include "../model/taikhoan.php";
+include "../model/binhluan.php";
+include "../model/cart.php";
     $dsdm = loadall_danhmuc();
     include "header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -115,7 +117,30 @@ include "../model/thongke.php";
             case "xoatk":
 
             case "listbill":
-
+                if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                    $kyw=$_POST["kyw"];
+                }else{
+                    $kyw="";
+                }
+                $listbill=loadall_bill($kyw,0);
+                include "bill/listbill.php";
+                break;
+            case "suabill":
+                    if(isset($_GET['idbill'])&&($_GET['idbill'])>0){
+                        $bill=loadone_bill($_GET['idbill']);
+                    }
+                    include "bill/update.php";
+                    break; 
+            case "updatebill":
+                    if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                        $bill_status=$_POST['bill_status'];
+                        $id=$_POST['id'];
+                        update_bill($id,$bill_status);
+                        $thongbao="Cập Nhật Thành Công";
+                    }
+                    $listbill=loadall_bill("",0);
+                    include "bill/listbill.php";
+                    break;
             case "listdm":
                 $danhmuc=load_thongke_sanpham_danhmuc();
                 include "danhmuc/listdm.php";

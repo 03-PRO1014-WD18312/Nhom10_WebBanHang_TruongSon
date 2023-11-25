@@ -3,7 +3,7 @@
     <div class="giohang">
         <table >
             <thead>
-            <tr>
+            <tr >
                 <th>ma don hang</th>
                 <th>ngay dat hang</th>
                 <th>so luong sp</th>
