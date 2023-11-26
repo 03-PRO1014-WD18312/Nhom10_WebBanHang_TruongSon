@@ -84,7 +84,7 @@
             case "dangxuat":
                 dangxuat();
                 // include "view/home.php";
-                header("location:index.php?act=dangky");
+                header("location:index.php");
                 break;
             case "quenmk":
                 if (isset($_POST['guiemail'])) {

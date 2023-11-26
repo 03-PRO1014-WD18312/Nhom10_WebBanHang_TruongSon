@@ -24,7 +24,9 @@ include "../model/cart.php";
                 include "sanpham/list.php";
                 break;
             case "bieudosp":
-                
+                $listsanpham=loadall_sanpham();
+                include "sanpham/bieudo.php";
+                break;
             case "addsp":
                 if(isset($_POST['themmoi'])&&$_POST['themmoi']){
                     $iddm=$_POST['iddm'];
@@ -103,7 +105,9 @@ include "../model/cart.php";
                 include "sanpham/list.php";
                 break;
             case "thongke":
-
+                $dsthongke=load_thongke_sanpham_danhmuc();
+                include "thongke/list.php";
+                break;
             case "thongkebl":
                 $dsthongkebl=load_thongke_binhluan();
                 include "thongke/thongkebl.php";
@@ -116,13 +120,30 @@ include "../model/cart.php";
                 header("location:index.php?act=thongkebl");
                 break;
             case "bieudo":
-
+                $dsthongke=load_thongke_sanpham_danhmuc();
+                include "thongke/bieudo.php";
+                break; 
             case "dangkyadmin":
-
+                if(isset($_POST['dangky'])){
+                    $email=$_POST['email'];
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    insert_taikhoanadmin($email,$user,$pass);
+                    $thongbao="dang ky thanh cong";
+                }
+                include "sanpham/dangky.php";
+                break;
             case "quanlitaikhoan":
-
+                $dsthongketk=load_thongke_taikhoan();
+                include "thongke/thongketk.php";
+                break;
             case "xoatk":
-
+                if(isset($_GET['id'])){
+                    delete_taikhoan($_GET['id']);
+                }
+                $dsthongketk=load_thongke_taikhoan();
+                header("location:index.php?act=quanlitaikhoan");
+                break;
             case "listbill":
                 if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
                     $kyw=$_POST["kyw"];
