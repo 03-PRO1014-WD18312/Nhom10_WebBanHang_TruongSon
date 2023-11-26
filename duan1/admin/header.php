@@ -16,22 +16,10 @@
         </div>
         <ul class="nav-menu">
             <li><a href="index.php?act=listsp">Trang chủ</a></li>
-            <li class="dropdown">
-                <a class="dropdownbtn" href="index.php?act=listdm">Danh Mục</a>
-                <div class="dropdown_content">
-                    <?php
-                    foreach ($dsdm as $dm){
-                        extract($dm);
-                        $linkdm="index.php?act=sanpham&iddm=".$id;
-                        echo '<a href="'.$linkdm.'">'.$name.'</a>';
-                    }
-                    ?>
-                </div>
-            </li>
             <li><a href="index.php?act=listbill">bill</a></li>
-            <li><a href="">Biểu Đồ Sản Phẩm</a></li>
-            <li><a href="">Biểu Đồ Bình luận</a></li>
-            <li><a href="">Thống kê</a></li>
+            <li><a href="index.php?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
+            <li><a href="index.php?act=bieudosp">Biểu Đồ Bình luận</a></li>
+            <li><a href="index.php?act=thongke">Thống kê</a></li>
             <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
 
         </ul>
@@ -41,7 +29,7 @@
                 <input class="sub" type="submit" value="Tìm Kiếm">
             </form>
             <a href="index.php?act=viewcart"><img class="img1" src="../img/logoshop.jpg" alt=""></a>
-            <a style="color:#fff; margin-top:25px" href="http://localhost/Duan/Nhom10_WebBanHang_TruongSon/duan1/index.php?act=dangxuat">Đăng Xuất</a>aaaa
+            <a style="color:#fff; margin-top:25px" href="http://localhost/Duan/Nhom10_WebBanHang_TruongSon/duan1/index.php?act=dangxuat">Đăng Xuất</a>
         </ul>
     </nav>
     <div class="navbar">

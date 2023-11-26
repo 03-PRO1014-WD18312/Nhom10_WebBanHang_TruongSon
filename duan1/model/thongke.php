@@ -11,3 +11,10 @@ function load_thongke_binhluan(){
     $result =  pdo_query($sql);
     return $result;
 }
+function load_thongke_taikhoan(){
+    $sql = "
+        SELECT id, user, pass, email, role FROM `taikhoan` 
+    ";
+    $result =  pdo_query($sql);
+    return $result;
+}
