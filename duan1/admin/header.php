@@ -32,7 +32,7 @@
             <li><a href="">Biểu Đồ Sản Phẩm</a></li>
             <li><a href="">Biểu Đồ Bình luận</a></li>
             <li><a href="">Thống kê</a></li>
-            <li><a href="">Bình Luận</a></li>
+            <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
 
         </ul>
         <ul class="nav-right">
