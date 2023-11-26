@@ -105,9 +105,16 @@ include "../model/cart.php";
             case "thongke":
 
             case "thongkebl":
-
+                $dsthongkebl=load_thongke_binhluan();
+                include "thongke/thongkebl.php";
+                break;
             case "xoabl":
-
+                if(isset($_GET['id'])){
+                    delete_binhluan($_GET['id']);
+                }
+                $dsthongkebl=load_thongke_binhluan();
+                header("location:index.php?act=thongkebl");
+                break;
             case "bieudo":
 
             case "dangkyadmin":
