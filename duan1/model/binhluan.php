@@ -19,6 +19,10 @@
         //die;
         pdo_execute($sql);
     }
+    function delete_binhluan($idbl){
+        $sql="DELETE FROM binhluan where id='$idbl'";
     
+    pdo_execute($sql);
+    }
 
 ?>
