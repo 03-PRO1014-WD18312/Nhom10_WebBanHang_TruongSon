@@ -80,7 +80,7 @@ include "../model/cart.php";
                     }else{
                         echo " Lỗi";
                     }
-                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh,);
+                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh);
                     $thongbao="Cập Nhật Thành Công";
                 }
                 $listdanhmuc=loadall_danhmuc();
@@ -208,18 +208,16 @@ include "../model/cart.php";
                 $danhmuc=load_thongke_sanpham_danhmuc();
                 include "danhmuc/listdm.php";
                 break; 
+            case "dangxuat":
+                dangxuat();
+                // include "view/home.php";
+                header("location:../index.php");
+                break;
         }
     }else{
-        if(isset($_POST['clickOK'])&&($_POST['clickOK'])){
-            $keyw=$_POST['keyw'];
-            $iddm=$_POST['iddm'];
-           }else{
-               $keyw="";
-               $iddm=0;
-           }
-        $listdanhmuc=loadall_danhmuc();
-        $listsanpham=loadall_sanpham($keyw,$iddm);
-        include "sanpham/list.php";
+        $dsthongke=load_thongke_sanpham_danhmuc();
+        $listsanpham=loadall_sanpham();
+        include "home.php";
     }
     include "footer.php";
 ?>

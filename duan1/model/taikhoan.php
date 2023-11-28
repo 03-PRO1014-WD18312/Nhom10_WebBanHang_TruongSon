@@ -4,6 +4,18 @@ session_start();
     $sql ="INSERT INTO `taikhoan`(`user`,`pass`,`email`) VALUES ('$username','$pass','$email');";
     pdo_execute($sql);
  }
+ function update_taikhoan($id,$tentk,$pass,$email,$address,$tel){
+   
+       $sql="UPDATE taikhoan SET `name`='$tentk',`pass`='$pass',`email`='$email',`address`='$address',`tel`='$tel' where `id`=$id";
+      
+   pdo_execute($sql);
+}
+function loadone_taikhoan($id){
+   $sql = "select * from taikhoan where id = $id";
+   $result = pdo_query_one($sql);
+   return $result;
+}
+
  
  function insert_taikhoanadmin($email,$username,$pass){
    $sql ="INSERT INTO `taikhoan`(`user`,`pass`,`email`,`role`) VALUES ('$username','$pass','$email',1);";
@@ -34,6 +46,7 @@ session_start();
       unset($_SESSION['email']);
       unset($_SESSION['address']);
       unset($_SESSION['tel']);
+      unset($_SESSION['role']);
    }
  }
  function sendMail($email){
