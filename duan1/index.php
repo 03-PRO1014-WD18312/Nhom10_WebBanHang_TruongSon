@@ -63,10 +63,15 @@
                     }
 
                 }
+                if(isset($_SESSION['iduser'])){
+                $taikhoan=loadone_taikhoan($_SESSION['iduser']);
+                }
                 include "view/login/dangkydangnhap.php";
                 break ;
             case "dangnhap":
                 if (isset($_POST['dangnhap'])) {
+
+                    
                     $loginMess=dangnhap($_POST['user'], $_POST['pass']);
                        if(isset($_SESSION['user'])){
                             if($_SESSION['role']==1){
@@ -172,7 +177,26 @@
                         header("location:index.php?act=dangnhap");
                     }
                     break;
-        }
+            case "updatetk":
+                if (isset($_POST["updatetk"])&&($_POST['updatetk'])) {
+                    if(isset($_SESSION['user'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $pass=$_POST['pass'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    update_taikhoan($id,$name,$pass,$email,$address,$tel);
+                    $thongbao="Cập Nhật Thành Công";
+                    
+                }
+                }
+                
+                
+                $taikhoan=loadone_taikhoan($_SESSION['iduser']);
+                include "view/login/dangkydangnhap.php";
+                break;
+            }
             
     }else{
         include "view/home.php";

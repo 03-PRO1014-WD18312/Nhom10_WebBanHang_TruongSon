@@ -16,7 +16,8 @@
             <img src="../img/logo.jpg" alt="">
         </div>
         <ul class="nav-menu">
-            <li><a href="index.php?act=listsp">Trang chủ</a></li>
+            <li><a href="index.php">Trang chủ</a></li>
+            <li><a href="index.php?act=listsp">tat ca san pham</a></li>
             <li><a href="index.php?act=listbill">bill</a></li>
             <li><a href="index.php?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
             <li><a href="index.php?act=bieudosp">Biểu Đồ Bình luận</a></li>
@@ -30,7 +31,7 @@
                 <input class="sub" type="submit" value="Tìm Kiếm">
             </form>
             <a href="index.php?act=viewcart"><img class="img1" src="../img/logoshop.jpg" alt=""></a>
-            <a style="color:#fff; margin-top:25px" href="http://localhost/Duan/Nhom10_WebBanHang_TruongSon/duan1/index.php?act=dangxuat">Đăng Xuất</a>
+            <a style="color:#fff; margin-top:25px" href="index.php?act=dangxuat">Đăng Xuất</a>
         </ul>
     </nav>
     <div class="navbar">
