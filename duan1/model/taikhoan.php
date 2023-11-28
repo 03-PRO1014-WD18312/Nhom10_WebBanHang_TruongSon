@@ -5,6 +5,11 @@ session_start();
     pdo_execute($sql);
  }
  
+ function insert_taikhoanadmin($email,$username,$pass){
+   $sql ="INSERT INTO `taikhoan`(`user`,`pass`,`email`,`role`) VALUES ('$username','$pass','$email',1);";
+   pdo_execute($sql);
+}
+ 
  function dangnhap($user,$pass){
    $sql="SELECT * FROM taikhoan where user='$user' and pass='$pass';";
    $taikhoan=pdo_query_one($sql);

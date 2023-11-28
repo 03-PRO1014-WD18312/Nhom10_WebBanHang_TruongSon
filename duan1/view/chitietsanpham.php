@@ -37,10 +37,10 @@
                 </div>
                 <div class="ctsanpham">
                     <div style="margin-right: 10px;">
-                        <a href="#"><button class="button1" type="button">Mua Ngay</button></a>
+                        <a href="index.php?act=bill"><button class="button1" type="button">Mua Ngay</button></a>
                     </div>
                     <div >
-                        <a href="#"><button class="button2" type="button">Thêm Vào Giỏ Hàng</button></a>
+                        <a href="index.php?act=addtocart"><button class="button2" type="button">Thêm Vào Giỏ Hàng</button></a>
                     </div>
                 </div> 
                 <div class="binhluan">

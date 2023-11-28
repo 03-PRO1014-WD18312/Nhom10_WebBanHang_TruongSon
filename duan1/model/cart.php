@@ -11,11 +11,11 @@ function viewcart($del){
         $xoasp_td2='';
     }
         echo '<tr>
-                    <th>hình</th>
-                    <th>sản phẩm</th>
-                    <th>đơn giá</th>
-                    <th>số lượng</th>
-                    <th>thành tiền</th>
+                    <th style="text-align:center">hình</th>
+                    <th style="text-align:center">sản phẩm</th>
+                    <th style="text-align:center">đơn giá</th>
+                    <th style="text-align:center">số lượng</th>
+                    <th style="text-align:center">thành tiền</th>
                     '.$xoasp_th.'
                 </tr>';
             foreach($_SESSION['mycart'] as $cart){
@@ -27,8 +27,8 @@ function viewcart($del){
                     $xoasp_td='';
                 }
             echo ' 
-                   <tr>
-                    <td><img src="'.$hinh.'" alt="" height="80px"></td>
+                   <tr style="text-align:center">
+                    <td><img src="'.$hinh.'" alt="" width="150px"></td>
                     <td>'.$cart[1].'</td>
                     <td>'.$cart[3].'</td>
                     <td>'.$cart[4].'</td>
