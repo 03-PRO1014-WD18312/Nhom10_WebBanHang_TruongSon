@@ -13,6 +13,9 @@
     if (!isset($_SESSION["mycart"])){
         $_SESSION["mycart"]=[];
     }
+    if (isset($_SESSION["user"])){
+        $taikhoan=loadone_taikhoan($_SESSION['iduser']);
+    }
     include "view/header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -105,8 +108,8 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
-                    $ttien=$soluong*$price;
+                    $soluong=$_POST['soluong'];
+                    $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
                 }else{
@@ -133,8 +136,8 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
-                    $ttien=$soluong*$price;
+                    $soluong=$_POST['quantity'];
+                    $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
                 }else{
@@ -186,7 +189,15 @@
                     $email=$_POST['email'];
                     $address=$_POST['address'];
                     $tel=$_POST['tel'];
-                    update_taikhoan($id,$name,$pass,$email,$address,$tel);
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir="upload/";
+                    $target_file=$target_dir.basename($_FILES['hinh']['name']);
+                    if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
+                        echo " Thành Công ";
+                    }else{
+                        echo " Lỗi";
+                    }
+                    update_taikhoan($id,$name,$pass,$email,$address,$tel,$hinh);
                     $thongbao="Cập Nhật Thành Công";
                     
                 }
