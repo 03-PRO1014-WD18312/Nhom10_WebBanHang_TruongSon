@@ -39,7 +39,7 @@
                     <div style="margin-right: 10px;">
                         
                         <form action="index.php?act=bill" method="post">
-                                        <input type="number" name="quantity" value="1" hidden="" >
+                                        <input type="number" name="quantity" value="1"  >
                                         <input type="hidden" name="id" value="<?php echo $id?>" >
                                         <input type="hidden" name="name" value="<?php echo $name?>" >
                                         <input type="hidden" name="img" value="<?php echo $img?>" >
@@ -49,7 +49,7 @@
                     </div>
                     <div >
                         <form action="index.php?act=addtocart" method="post">
-                                        <input type="number" name="soluong" value="1" hidden="" >
+                                        <input type="number" name="soluong" value="1"  >
                                         <input type="hidden" name="id" value="<?php echo $id?>" >
                                         <input type="hidden" name="name" value="<?php echo $name?>" >
                                         <input type="hidden" name="img" value="<?php echo $img?>" >
