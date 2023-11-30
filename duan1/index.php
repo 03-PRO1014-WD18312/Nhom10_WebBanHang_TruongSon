@@ -108,15 +108,32 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=$_POST['soluong'];
+                    $soluong=$_POST['quantity'];
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/viewcart.php";
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
             }
-                include "view/cart/viewcart.php";
+            if (isset($_POST["addtobill"])&&($_POST['addtobill'])) {
+                    if(isset($_SESSION['user'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=$_POST['quantity'];
+                    $ttien=intval($soluong)*intval($price);
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/bill.php";
+                }else{
+                    header("location:index.php?act=dangnhap");
+                }
+            }
+        
+                
                 break;
             case "delcart":
                 if(isset($_GET['idcart'])) {
@@ -130,7 +147,7 @@
                 include "view/cart/viewcart.php";
                 break;
             case "bill":
-                if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
+                if (isset($_POST["addtobill"])&&($_POST['addtobill'])) {
                     if(isset($_SESSION['user'])){
                     $id=$_POST['id'];
                     $name=$_POST['name'];
@@ -140,11 +157,12 @@
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/bill.php";
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
                 }
-                include "view/cart/bill.php";
+                
                 break;
             case "billconfirm":
                 if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {
