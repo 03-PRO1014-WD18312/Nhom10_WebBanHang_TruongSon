@@ -157,12 +157,12 @@
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
-                    include "view/cart/bill.php";
+                    
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
                 }
-                
+                include "view/cart/bill.php";
                 break;
             case "billconfirm":
                 if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {
