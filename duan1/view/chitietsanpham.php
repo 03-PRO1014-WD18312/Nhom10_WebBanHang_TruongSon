@@ -1,8 +1,8 @@
 <?php extract($sanpham); ?>
 <div class="sanpham5">
             <div>
-            <?php $img = $img_path . $img;?>
-                <img src="<?php echo $img?>" alt="" width="550px" height="450px" style="border-radius: 20px;">
+            <?php $hinh = $img_path . $img;?>
+                <img src="<?php echo $hinh?>" alt="" width="550px" height="450px" style="border-radius: 20px;">
             </div>
             <div>
                 <h1><?php echo $name; ?></h1>
@@ -37,11 +37,18 @@
                 </div>
                 <div class="ctsanpham">
                     <div style="margin-right: 10px;">
-                        <a href="index.php?act=bill"><button class="button1" type="button">Mua Ngay</button></a>
+                        
+                        <form action="index.php?act=addtocart" method="post">
+                                        <input type="number" name="quantity" value="1"  >
+                                        <input type="hidden" name="id" value="<?php echo $id?>" >
+                                        <input type="hidden" name="name" value="<?php echo $name?>" >
+                                        <input type="hidden" name="img" value="<?php echo $img?>" >
+                                        <input type="hidden" name="price" value="<?php echo $price?>" >
+                                        <input type="submit" name="addtobill" value="mua ngay">
+                                        <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
+                        </form>
                     </div>
-                    <div >
-                        <a href="index.php?act=addtocart"><button class="button2" type="button">Thêm Vào Giỏ Hàng</button></a>
-                    </div>
+                    
                 </div> 
                 <div class="binhluan">
                     <div>
