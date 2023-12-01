@@ -2,7 +2,7 @@
 <div class="sanpham5">
             <div>
             <?php $img = $img_path . $img;?>
-                <img src="<?php echo $img?>" alt="" width="550px" height="450px" style="border-radius: 20px;">
+                <img src="<?php echo $img?>" alt="" width="550px" height="auto" style="border-radius: 20px; border:2px solid gray">
             </div>
             <div>
                 <h1><?php echo $name; ?></h1>
@@ -103,7 +103,7 @@
                     <?php $img1 = $img_path . $value['img'];?>
                     <li class="sanpham3">
                         <a href="index.php?act=sanphamct&idsp=<?=$value['id']?>">
-                        <img src="<?php echo $img1 ?>" alt="">
+                        <img src="<?php echo $img1 ?>" alt="" style="border-radius: 20px; border:2px solid gray" >
                             <p><?=$value['name']?></p>
                         </a>
 
