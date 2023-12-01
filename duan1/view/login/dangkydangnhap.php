@@ -3,6 +3,12 @@
 
                 if(isset($_SESSION['user'])) {
                     extract($taikhoan);
+                    $hinhpath="upload/".$img;
+                    if(is_file($hinhpath)){
+                        $hinhpath="<img src='".$hinhpath."' width='100px' heigh='100px'>";
+                    }else{
+                        $hinhpath="loi";
+                    }
                    
                     
                     ?>
@@ -34,6 +40,10 @@
                        <label>Số Điện Thoại</label> <br>
                        <input type="text" name="tel" value="<?php echo $tel ?>" >
                       </div>
+                      
+                      <label>Hình ảnh </label> <br>
+                        <input type="file" name="hinh" style="color:red">
+                        <?php echo $hinhpath?>
                       
                       <div class="row mb10 ">
                       <input type="submit" name="updatetk" value="update">
