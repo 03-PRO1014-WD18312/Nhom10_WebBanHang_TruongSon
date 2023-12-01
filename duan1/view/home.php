@@ -37,9 +37,9 @@
                   extract($sp);
                   $hinh =  $img_path.$img;
                   $linksp="index.php?act=sanphamct&idsp=".$id;
-                  echo '<div class="sanpham1"> 
+                  echo '<div class="sanpham"> 
+                            <div class="sanpham1">   
                             <img style="border-radius: 15px"  src="'.$hinh.'" alt="">
-                            <div>
                                 <div class="sanpham3">
                                     <a href="'. $linksp .'"><h3>'.$name.'</h3></a>
                                     <p class="p1"><del>'.$old_price.'</del>-'.$price.'</p>
@@ -56,7 +56,7 @@
                                         </form>
                                         
                                 </div>
-                            </div>
+                                </div>
                         </div>';
                   
               }
@@ -69,14 +69,14 @@
                 <h1>Top Sản Phẩm Nhiều Người Xem</h1>
                 <li><a href="#">Xem Thêm</a></li>
             </div> 
-            <div class="sanpham1">
+            <div class="sanpham">
                     <?php
                     foreach($dstop10 as $sp){
                     extract($sp);
                     $linksp="index.php?act=sanphamct&idsp=".$id;
                     $hinh=$img_path.$img;
-                    echo '<div class="sanpham1">
-                    <div>
+                    echo '<div class="sanpham">
+                    <div class="sanpham1">
                     <img style="border-radius: 15px" src="'.$hinh.'" alt="">
                     <div class="sanpham3">
                         <a href="'.$linksp.'"><h3>'.$name.'</h3></a>

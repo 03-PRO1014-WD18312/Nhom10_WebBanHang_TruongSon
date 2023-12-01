@@ -19,8 +19,6 @@
             <li><a href="index.php">Trang chủ</a></li>
             <li><a href="index.php?act=listsp">tat ca san pham</a></li>
             <li><a href="index.php?act=listbill">bill</a></li>
-            <li><a href="index.php?act=bieudo">Biểu Đồ Sản Phẩm</a></li>
-            <li><a href="index.php?act=bieudosp">Biểu Đồ Bình luận</a></li>
             <li><a href="index.php?act=thongke">Thống kê</a></li>
             <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
 

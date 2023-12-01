@@ -1,8 +1,12 @@
 <?php extract($sanpham); ?>
 <div class="sanpham5">
             <div>
+            <?php $img = $img_path . $img;?>
+                <img src="<?php echo $img?>" alt="" width="550px" height="auto" style="border-radius: 20px; border:2px solid gray">
+
             <?php $hinh = $img_path . $img;?>
                 <img src="<?php echo $hinh?>" alt="" width="550px" height="450px" style="border-radius: 20px;">
+
             </div>
             <div>
                 <h1><?php echo $name; ?></h1>
@@ -45,10 +49,21 @@
                                         <input type="hidden" name="img" value="<?php echo $img?>" >
                                         <input type="hidden" name="price" value="<?php echo $price?>" >
                                         <input type="submit" name="addtobill" value="mua ngay">
-                                        <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
                         </form>
                     </div>
-                    
+                    <div >
+                        <form action="index.php?act=addtocart" method="post">
+                                        <input type="number" name="soluong" value="1"  >
+                                        <input type="number" name="quantity" value="1"  >
+                                        <input type="hidden" name="id" value="<?php echo $id?>" >
+                                        <input type="hidden" name="name" value="<?php echo $name?>" >
+                                        <input type="hidden" name="img" value="<?php echo $img?>" >
+                                        <input type="hidden" name="price" value="<?php echo $price?>" >
+                                        <input type="submit" name="addtobill" value="mua ngay">
+                                        <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
+                                        </form>
+                        </form>
+                    </div>
                 </div> 
                 <div class="binhluan">
                     <div>
@@ -110,7 +125,7 @@
                     <?php $img1 = $img_path . $value['img'];?>
                     <li class="sanpham3">
                         <a href="index.php?act=sanphamct&idsp=<?=$value['id']?>">
-                        <img src="<?php echo $img1 ?>" alt="">
+                        <img src="<?php echo $img1 ?>" alt="" style="border-radius: 20px; border:2px solid gray" >
                             <p><?=$value['name']?></p>
                         </a>
 
