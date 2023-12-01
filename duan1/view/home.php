@@ -46,19 +46,15 @@
                                 </div>
                                 <div class="sanpham3">
                                     <form action="index.php?act=addtocart" method="post">
+                                        <input type="number" name="quantity" value="1" >
                                         <input type="hidden" name="id" value="'.$id.'" >
                                         <input type="hidden" name="name" value="'.$name.'" >
                                         <input type="hidden" name="img" value="'.$img.'" >
                                         <input type="hidden" name="price" value="'.$price.'" >
                                         <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
+                                        <input type="submit" name="addtobill" value="Mua Ngay" >
                                         </form>
-                                        <form action="index.php?act=bill" method="post">
-                                        <input type="hidden" name="id" value="'.$id.'" >
-                                        <input type="hidden" name="name" value="'.$name.'" >
-                                        <input type="hidden" name="img" value="'.$img.'" >
-                                        <input type="hidden" name="price" value="'.$price.'" >
-                                        <input type="submit" name="addtocart" value="mua ngay">
-                                    </form>
+                                        
                                 </div>
                             </div>
                         </div>';
@@ -88,6 +84,7 @@
                     </div>
                     <div class="sanpham3">
                     <form action="index.php?act=addtocart" method="post">
+                    <input type="number" name="soluong" value="1" >
                         <input type="hidden" name="id" value="'.$id.'" >
                         <input type="hidden" name="name" value="'.$name.'" >
                         <input type="hidden" name="img" value="'.$img.'" >
@@ -95,12 +92,13 @@
                         <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
                     </form>
                     <form action="index.php?act=bill" method="post">
-                        <input type="hidden" name="id" value="'.$id.'" >
-                        <input type="hidden" name="name" value="'.$name.'" >
-                        <input type="hidden" name="img" value="'.$img.'" >
-                        <input type="hidden" name="price" value="'.$price.'" >
-                        <input type="submit" name="addtocart" value="mua ngay">
-                        </form>
+                                        <input type="hidden" name="id" value="'.$id.'" >
+                                        <input type="hidden" name="name" value="'.$name.'">
+                                        <input type="hidden" name="img" value="'.$img.'">
+                                        <input type="hidden" name="price" value="'.$price.'">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="submit" name="addtocart" value="Mua Ngay">
+                    </form>
                         </div>
                         </div>
                     </div>';
@@ -132,3 +130,21 @@
             </div>
             
         </div>
+        <!-- <script>
+    function setBuyNowQuantity() {
+        // Lấy giá trị số lượng từ trường input="number"
+        var quantity = document.querySelector('input[name="soluong"]').value;
+
+        // Gán giá trị số lượng vào trường ẩn trong form "Mua Ngay"
+        document.getElementById('buyNowQuantity').value = quantity;
+        document.querySelector('input[name="quantity"]').value = quantity;
+    document.querySelector('input[name="buyNowQuantity"]').value = quantity;
+
+        var quantity1 = document.querySelector('input[name="soluong1"]').value;
+
+        // Gán giá trị số lượng vào trường ẩn trong form "Mua Ngay"
+        document.getElementById('buyNowQuantity1').value = quantity1;
+        document.querySelector('input[name="quantity1"]').value = quantity1;
+    document.querySelector('input[name="buyNowQuantity1"]').value = quantity1;
+    }
+</script> -->

@@ -4,10 +4,12 @@ session_start();
     $sql ="INSERT INTO `taikhoan`(`user`,`pass`,`email`) VALUES ('$username','$pass','$email');";
     pdo_execute($sql);
  }
- function update_taikhoan($id,$tentk,$pass,$email,$address,$tel){
-   
-       $sql="UPDATE taikhoan SET `name`='$tentk',`pass`='$pass',`email`='$email',`address`='$address',`tel`='$tel' where `id`=$id";
-      
+ function update_taikhoan($id,$tentk,$pass,$email,$address,$tel,$hinh){
+   if($hinh!=""){
+       $sql="UPDATE taikhoan SET `name`='$tentk',`pass`='$pass',`email`='$email',`address`='$address',`tel`='$tel',`img`='$hinh' where `id`=$id";
+      }else{
+      $sql="UPDATE taikhoan SET `name`='$tentk',`pass`='$pass',`email`='$email',`address`='$address',`tel`='$tel' where `id`=$id";
+      }
    pdo_execute($sql);
 }
 function loadone_taikhoan($id){
@@ -34,6 +36,7 @@ function loadone_taikhoan($id){
       $_SESSION['address']=$address;
       $_SESSION['tel']=$tel;
       $_SESSION['role']=$role;
+      $_SESSION['img']=$img;
    }else{
       return "thong tin tai khoan khong dung";
    }
@@ -47,6 +50,7 @@ function loadone_taikhoan($id){
       unset($_SESSION['address']);
       unset($_SESSION['tel']);
       unset($_SESSION['role']);
+      unset($_SESSION['img']);
    }
  }
  function sendMail($email){

@@ -13,6 +13,9 @@
     if (!isset($_SESSION["mycart"])){
         $_SESSION["mycart"]=[];
     }
+    if (isset($_SESSION["user"])){
+        $taikhoan=loadone_taikhoan($_SESSION['iduser']);
+    }
     include "view/header.php";
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -105,15 +108,32 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
-                    $ttien=$soluong*$price;
+                    $soluong=$_POST['quantity'];
+                    $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/viewcart.php";
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
             }
-                include "view/cart/viewcart.php";
+            if (isset($_POST["addtobill"])&&($_POST['addtobill'])) {
+                    if(isset($_SESSION['user'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=$_POST['quantity'];
+                    $ttien=intval($soluong)*intval($price);
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/bill.php";
+                }else{
+                    header("location:index.php?act=dangnhap");
+                }
+            }
+        
+                
                 break;
             case "delcart":
                 if(isset($_GET['idcart'])) {
@@ -127,21 +147,22 @@
                 include "view/cart/viewcart.php";
                 break;
             case "bill":
-                if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
+                if (isset($_POST["addtobill"])&&($_POST['addtobill'])) {
                     if(isset($_SESSION['user'])){
                     $id=$_POST['id'];
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
-                    $ttien=$soluong*$price;
+                    $soluong=$_POST['quantity'];
+                    $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
+                    include "view/cart/bill.php";
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
                 }
-                include "view/cart/bill.php";
+                
                 break;
             case "billconfirm":
                 if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {
@@ -186,7 +207,15 @@
                     $email=$_POST['email'];
                     $address=$_POST['address'];
                     $tel=$_POST['tel'];
-                    update_taikhoan($id,$name,$pass,$email,$address,$tel);
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir="upload/";
+                    $target_file=$target_dir.basename($_FILES['hinh']['name']);
+                    if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
+                        echo " Thành Công ";
+                    }else{
+                        echo " Lỗi";
+                    }
+                    update_taikhoan($id,$name,$pass,$email,$address,$tel,$hinh);
                     $thongbao="Cập Nhật Thành Công";
                     
                 }

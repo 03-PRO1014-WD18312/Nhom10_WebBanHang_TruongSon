@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION['user'])){
+extract($taikhoan);
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +46,11 @@
                     <input class="sub" type="submit" value="Tìm Kiếm">
                 </form>
                 <a href="index.php?act=viewcart"><img class="img1" src="./img/logoshop.jpg" alt=""></a>
+                <?php if(!isset($_SESSION['user'])){ ?>
                 <a href="index.php?act=dangky"><img class="img1" src="./img/logouser.jpg" alt=""></a>
+                <?php }else{ ?>
+                    <a href="index.php?act=dangky">    <img src="upload/<?php echo $img ?>" alt=""></a>
+                    <?php } ?>
             </ul>
         </nav>
         <div class="navbar">
@@ -52,3 +61,4 @@
                 </div>
             </div>
         </div>
+        
