@@ -38,7 +38,7 @@ function loadone_taikhoan($id){
       $_SESSION['role']=$role;
       $_SESSION['img']=$img;
    }else{
-      return "thong tin tai khoan khong dung";
+      return "Thông Tin Tài Khoan Không Đúng";
    }
  }
  function dangxuat(){

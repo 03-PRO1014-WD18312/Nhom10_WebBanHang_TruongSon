@@ -10,19 +10,20 @@ extract($taikhoan);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <div class="container">
         <nav>
             <div class="logo">
-                <img src="./img/logo.jpg" alt="">
+                <img src="./img/logohome.jpg" alt="">
             </div>
             <ul class="nav-menu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="index.php?act=sanpham">Sản Phẩm</a></li>
                 <li class="dropdown">
-                    <a class="dropdownbtn" href="index.php?act=sanpham">Danh Mục</a>
+                    <a class="dropdownbtn" href="index.php?act=sanpham">Danh Mục<i class="bi bi-arrow-down-short" style="font-size: 20px;"></i></a>
                     <div class="dropdown_content">
                         <?php
                         foreach ($dsdm as $dm){
@@ -45,12 +46,18 @@ extract($taikhoan);
                     <input  type="text" placeholder="Bạn Muốn Tìm Kiếm..." name="keyword" >
                     <input class="sub" type="submit" value="Tìm Kiếm">
                 </form>
-                <a href="index.php?act=viewcart"><img class="img1" src="./img/logoshop.jpg" alt=""></a>
+                <a href="index.php?act=viewcart"><img> <i class="bi bi-cart" style="font-size: 45px;"></i></a>
                 <?php if(!isset($_SESSION['user'])){ ?>
-                <a href="index.php?act=dangky"><img class="img1" src="./img/logouser.jpg" alt=""></a>
-                <?php }else{ ?>
-                    <a href="index.php?act=dangky">    <img src="upload/<?php echo $img ?>" alt=""></a>
-                    <?php } ?>
+                <a href="index.php?act=dangky"> <i class="bi bi-person-circle" style="font-size: 45px;margin-left: 15px;margin-right: 25px;"></i></a>
+                <?php }else{ 
+                    if($img!=""){
+                    ?>
+                    <a href="index.php?act=dangky">    <img src="upload/<?php echo $img ?>" alt="" width="50px" height="50px" style="border-radius:60%; border: 2px solid gray;margin-right: 20px;"></a>
+                <?php }else{
+                    ?>
+                    <a href="index.php?act=dangky">    <img src="upload/avatar.webp" alt="" width="50px" height="50px" style="border-radius:60%; border: 2px solid gray;margin-right: 20px;"></a>
+                    <?php
+                }} ?>
             </ul>
         </nav>
         <div class="navbar">
