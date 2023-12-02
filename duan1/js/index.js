@@ -16,28 +16,6 @@ function slideshow(){
    
     
 }
-//  nut tang giam so luong
-const decreaseButton = document.getElementById("decrease");
-const increaseButton = document.getElementById("increase");
-const quantityElement = document.getElementById("quantity");
-
-let quantity = 0;
-
-function updateQuantity() {
-    quantityElement.textContent = quantity;
-}
-
-decreaseButton.addEventListener("click", function () {
-    if (quantity > 0) {
-        quantity--;
-        updateQuantity();
-    }
-});
-
-increaseButton.addEventListener("click", function () {
-    quantity++;
-    updateQuantity();
-});
 
 // nut chuyen doi an hien nut 
 const info1 = document.getElementById('info-1');

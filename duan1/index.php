@@ -41,7 +41,7 @@
                     if(isset($_SESSION['iduser'])){
                         insert_binhluan($_POST['idpro'], $_POST['noidung'],$_SESSION['iduser']);
                     }else{
-                        echo "may chua dang nhap";
+                        $mess= "Mày Chưa Đăng Nhập";
                     }
                 }
                 if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
@@ -108,7 +108,7 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=$_POST['quantity'];
+                    $soluong=1;
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
@@ -123,7 +123,7 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=$_POST['quantity'];
+                    $soluong=1;
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
@@ -162,7 +162,12 @@
                     header("location:index.php?act=dangnhap");
                 }
                 }
-                include "view/cart/bill.php";
+                if($_SESSION['mycart']!=[]&&isset($_SESSION['mycart'])){
+                    include "view/cart/bill.php";
+                    }else{
+                        echo "gio hang khong co gi";
+                    }
+                // include "view/cart/bill.php";
                 break;
             case "billconfirm":
                 if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {

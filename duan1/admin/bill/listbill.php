@@ -1,10 +1,10 @@
 <div>
-    <div>
-        <h1>danh sach don hang</h1>
+    <div style="text-align: center;">
+        <h1 >Danh Sách Đơn Hàng</h1>
     </div>
-    <form action="index.php?act=listbill" method="post">
-        <input type="text" name="kyw" placeholder="nhap ma don hang">
-        <input type="submit" name="listok" value="GO">
+    <form class="formlist" action="index.php?act=listbill" method="post">
+        <input type="text" name="kyw" placeholder="nhap ma don hang" style="border-radius: 10px;">
+        <input type="submit" name="listok" value="Tìm Kiếm">
     </form>
     <table border="1">
         <tr>
