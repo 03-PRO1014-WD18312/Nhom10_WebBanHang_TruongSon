@@ -24,7 +24,7 @@
                     <td><?php echo $pass ?></td>
                     <td><?php echo $email ?></td>
                     <td><?php echo $role ?></td>
-                    <th><a href="index.php?act=xoatk&&id=<?php echo $id;?>">xoa</a></th>
+                    <td><a href="index.php?act=xoatk&&id=<?php echo $id;?>">   <input type="button" value="Xóa" onclick="return confirm('bạn có chắc chắn muốn xóa')"> </a></td>
                 </tr>
             <?php
             }
@@ -34,10 +34,7 @@
             
            </table>
            </div>
-           <div class="row mb10 ">
-         
-                <a href="?act=bieudo"> <input  class="mr20" type="button" value="XEM BIỂU ĐỒ"></a>
-           </div>
           </form>
+          <a href="index.php?act=dangkyadmin"> <input class="mr20" type="button" value="ĐĂNG KÝ ADMIN"> </a>
          </div>
         </div>

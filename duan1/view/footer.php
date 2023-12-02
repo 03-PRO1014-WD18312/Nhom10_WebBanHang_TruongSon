@@ -1,13 +1,17 @@
 <footer>
             <div class="footer">
                 <div>
-                    <img src="./img/logo.jpg" alt="" width="250px" height="250px" style="margin-top: 10px;">
+                    <img src="./img/logohome.jpg" alt="" width="250px" height="250px" style="margin-top: 10px;">
                 </div>
                 <div class="thongtin">
-                    <h2>NỘI THẤT Shion</h2>
+                    <h2>NỘI THẤT TRƯỜNG SƠN</h2>
                     <p> là thương hiệu đến từ Savimex với gần 40 năm <br>kinh nghiệm
                         trong việc sản xuất và xuất khẩu <br> nội thất đạt chuẩn quốc tế.</p>
-                    <img src="" alt="">    
+                        <div>
+                            <i class="bi bi-google" style="font-size: 20px;margin-left: 10px;"></i>
+                            <i class="bi bi-telephone-fill" style="font-size: 20px;margin-left: 10px;"> </i>
+                            <i class="bi bi-facebook"style="font-size: 20px;margin-left: 10px;"></i>
+                        </div>   
                 </div>
                 <div class="thongtin">
                     <h2>Dich Vụ</h2>

@@ -4,12 +4,12 @@
         <table >
             <thead>
             <tr >
-                <th>ma don hang</th>
-                <th>ngay dat hang</th>
-                <th>so luong sp</th>
-                <th>thanh tien</th>
-                <th>phuong thuc thanh toan</th>
-                <th>trang thai</th>
+                <th>Mã Đơn Hàng</th>
+                <th>Ngày Đặt Hàng</th>
+                <th>Số Lượng Sản Phẩm</th>
+                <th>Thành Tiền</th>
+                <th>Phương Thức Thanh Toán</th>
+                <th>Trạng Thái</th>
             </tr>
             </thead>
             <?php

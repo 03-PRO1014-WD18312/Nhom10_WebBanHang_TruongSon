@@ -4,25 +4,25 @@ function viewcart($del){
     $tong=0;
     $i=0;
     if($del==1){
-        $xoasp_th='<th>thao tác</th>';
+        $xoasp_th='<th>Thao Tác</th>';
         $xoasp_td2='<td></td>';
     }else{
         $xoasp_th='';
         $xoasp_td2='';
     }
         echo '<tr>
-                    <th style="text-align:center">hình</th>
-                    <th style="text-align:center">sản phẩm</th>
-                    <th style="text-align:center">đơn giá</th>
-                    <th style="text-align:center">số lượng</th>
-                    <th style="text-align:center">thành tiền</th>
+                    <th style="text-align:center">Hình</th>
+                    <th style="text-align:center">Sản Phẩm</th>
+                    <th style="text-align:center">Đơn Giá</th>
+                    <th style="text-align:center">Số Lượng</th>
+                    <th style="text-align:center">Thành Tiền</th>
                     '.$xoasp_th.'
                 </tr>';
             foreach($_SESSION['mycart'] as $cart){
                 $hinh=$img_path.$cart[2];
                 $tong+=$cart[5]; 
                 if($del==1){
-                    $xoasp_td='<td><a href="index.php?act=delcart&idcart='.$i.'"><input type="button" value="xoa"></a></td>';
+                    $xoasp_td='<td><a href="index.php?act=delcart&idcart='.$i.'"><input type="button" value="Xoá"></a></td>';
                 }else{
                     $xoasp_td='';
                 }
@@ -143,19 +143,19 @@ function loadall_bill($kyw="",$iduser){
 function get_ttdh($n){
     switch($n){
         case '0':
-            $tt="don hang moi";
+            $tt="Đang Chuẩn Bị Hàng";
             break;
         case '1':
-        $tt="dang xu li";
+        $tt="Đã NHận Hàng";
         break;
         case '2':
-            $tt="dang giao hang";
+            $tt="Đang Giao Hàng";
             break;
         case '3':
-        $tt="da giao hang";
+        $tt="Đã Giao Hàng";
         break;
         default:
-        $tt= "don hang moi";
+        $tt= "Đang Chuẩn Bị Hàng";
         break;
             
         

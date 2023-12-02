@@ -49,7 +49,7 @@
                 <td>'.$name.'</td>
                 <td>'.$size.'</td>
                 <td>'.$material.'</td>
-                <td>'.$price.'</td>
+                <td>'.$price.'VNĐ</td>
                 <td>'.$hinhpath.'</td>
                 <td>'.$luotxem.'</td>
                 <td>'.$quantity.'</td>
@@ -67,8 +67,7 @@
            </table>
            </div>
            <div class="row mb10 ">
-         <a href="index.php?act=dangkyadmin"> <input class="mr20" type="button" value="ĐĂNG KÝ ADMIN"> </a>
-         <a href="index.php?act=quanlitaikhoan"> <input class="mr20" type="button" value="QUẢN LÍ TÀI KHOẢN"> </a>
+         
          <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
            </div>
           </form>

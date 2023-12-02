@@ -7,29 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 <div class="container">
     <nav>
         <div class="logo">
-            <img src="../img/logo.jpg" alt="">
+            <img src="../img/logohome.jpg" alt="">
         </div>
         <ul class="nav-menu">
-            <li><a href="index.php">Trang chủ</a></li>
-            <li><a href="index.php?act=listsp">tat ca san pham</a></li>
-            <li><a href="index.php?act=listbill">bill</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php?act=listsp">Sản Phẩm</a></li>
+            <li><a href="index.php?act=listbill">Đơn Hàng</a></li>
             <li><a href="index.php?act=thongke">Thống kê</a></li>
-            <li><a href="index.php?act=thongkebl">Bình Luận</a></li>
-
+            <li><a href="index.php?act=thongkebl"> Bình Luận</a></li>
+            <li><a href="index.php?act=quanlitaikhoan">Tài Khoản</a></li>
         </ul>
         <ul class="nav-right">
-            <form class="f1" action="index.php?act=sanpham" method="POST">
+            <!-- <form class="f1" action="index.php?act=sanpham" method="POST">
                 <input type="text" placeholder="Bạn Muốn Tìm Kiếm..." name="keyword" required>
                 <input class="sub" type="submit" value="Tìm Kiếm">
-            </form>
-            <a href="index.php?act=viewcart"><img class="img1" src="../img/logoshop.jpg" alt=""></a>
-            <a style="color:#fff; margin-top:25px" href="index.php?act=dangxuat">Đăng Xuất</a>
+            </form> -->
+            <a href="index.php?act=listbill"><i class="bi bi-cart" style="font-size: 45px;"></i></a>
+            <a href="index.php?act=dangxuat"><i class="bi bi-box-arrow-right" style="font-size: 45px;margin-left: 15px;margin-right: 25px;"></i></a>
         </ul>
     </nav>
     <div class="navbar">

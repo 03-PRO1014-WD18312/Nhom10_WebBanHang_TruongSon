@@ -6,7 +6,7 @@
 }
 
 nav{
-    background-color: black;
+    background-color: #E5E2DD;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -69,6 +69,7 @@ a{
     width: 30%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 .nav-right li{
     list-style: none;
@@ -88,17 +89,14 @@ a{
     margin-top: 20px;
 }
 .f1 input[type="text"]{
-    width: 100%;
     border: 1px solid #ccc;
     border-radius: 10px;
 }
 .f1 .sub {
-    padding: 5px 10px;
+
     background-color: #3498db;
     color: white;
-    border: none;
     border-radius: 15px;
-    cursor: pointer;
 }
 
 .f1 .sub:hover {
@@ -168,6 +166,7 @@ del{
     margin: 35px 10px 10px 210px;
     display: flex;
     gap: 55px;
+    width: 1800px;
 }
 .sanpham1 img{
     width: 250px;
@@ -187,14 +186,15 @@ del{
     display: grid;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 10%;
     text-align: center;
 }
-.sanpham5{
+.sanpham6{
     display: flex;
     flex-wrap: wrap;
-
+    margin: 35px 10px 10px 210px;
+    gap: 55px;
 }
 .sanpham2 {
     width: 25%;
@@ -202,6 +202,11 @@ del{
     text-align: center;
     border-radius: 10%;
     border:3px solid gray;
+    position:relative;
+    overflow:hidden;
+}
+.sanpham2:hover{
+    box-shadow: 1px 1px 5px 5px;
 }
 .sanpham2 img{
     margin-top: 10px;
@@ -211,10 +216,7 @@ del{
     display: flex;
     grid-column-gap: 25px;
     margin-top: 10px;
-}
-.sanpham4 li{
-    list-style-type:none ;
-    margin-top: 10px;
+    margin-left: 10px;
 }
 .sanpham3 a{
     display: flex;
@@ -228,21 +230,45 @@ del{
     height: 100px;
     border-radius: 12px;
 }
+.sanpham35{
+    display: flex;
+    grid-column-gap: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.sanpham35 a{
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.sanpham35 p{
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+.sanpham35 img{
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+}
+.sanpham4 li{
+    list-style-type:none ;
+    margin-top: 10px;
+}
 .footer{
-    background-color: black;
+    background-color: #E5E2DD;
     margin-top: 35px;
     display: flex;
     gap: 50px;
 }
 .thongtin p{
     margin-top: 10px;
-    color: #fff;
+    color: black;
     font-size: 15px;
 }
 .thongtin h2{
     font-size: 35px;
     margin-top: 40px;
-    color: #fff;
+    color: black;
 }
 .navbar{
     background-color: white;
@@ -307,7 +333,7 @@ button {
     align-items:center;
 }
 .ctsanpham1{
-    margin-left: 12px;
+    margin-left: 40px;
     border: 2px solid gray;
     padding: 5px;
 }
@@ -600,8 +626,8 @@ tr:nth-child(even) {
 
 form {
     margin-bottom: 20px;
+    /* display: flex; */
 }
-
 .f2 select, input[type="submit"], input[type="button"] {
     padding: 5px;
     margin: 4px;
@@ -730,4 +756,110 @@ input[type="reset"] {
 .box_content form input[type="submit"]:hover,
 .box_content form input[type="reset"]:hover {
     background-color: #2980b9;
+}
+.row2 {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+.row3 .mb10{
+    padding: 20px;
+}
+.font_title h1 {
+    color: #333;
+    text-align: center;
+}
+
+.form_content_container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+.formlist input[type="text"],
+input[type="file"] {
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.row3 .mb10 input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+a input[type="button"] {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a input[type="button"]:hover {
+    background-color: #d32f2f;
+}
+
+
+.xem > div {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.xem{
+    width: 580px;
+    margin-left: 500px;
+}
+.xem1 li, .xem2 {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+
+}
+
+.xem1, .xem2,.xem5,.xem {
+    border: 5px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.xem3 table, .xem5 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.xem3 table, .xem5 table, .xem3 td, .xem5 td {
+    border: 1px solid #ccc;
+}
+
+.xem3 td, .xem5 td {
+    padding: 8px;
+    text-align: left;
+}
+
+.xem4 {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.xem4, .xem5 {
+    margin-bottom: 15px;
+}
+
+.xem5 table {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.xem5 td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
 }

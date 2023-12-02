@@ -24,9 +24,9 @@
                     <td><?php echo $id ?></td>
                     <td><?php echo $name ?></td>
                     <td><?php echo $soluong ?></td>
-                    <td>$ <?php echo $gia_min ?></td>
-                    <td>$ <?php echo $gia_max ?></td>
-                    <td>$ <?php echo number_format($gia_avg,2) ?></td>
+                    <td><?php echo $gia_min ?>VNĐ</td>
+                    <td> <?php echo $gia_max ?>VNĐ</td>
+                    <td><?php echo number_format($gia_avg,2) ?>VNĐ</td>
                 </tr>
             <?php
             }
@@ -35,10 +35,6 @@
            
             
            </table>
-           </div>
-           <div class="row mb10 ">
-         
-                <a href="?act=bieudo"> <input  class="mr20" type="button" value="XEM BIỂU ĐỒ"></a>
            </div>
           </form>
          </div>

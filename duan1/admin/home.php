@@ -1,8 +1,10 @@
+<div style="text-align: center;">
+<h1>Biểu đồ </h1>
+</div>
 <div style="display:flex">
-<h1 >Biểu đồ </h1>
-  <div class="row2">
+  <div >
     
-    <div class="row2 form_content ">
+    <div >
       <div
               id="myChart" style="width:100%; width:800px; height:500px; align-items: center">
       </div>
@@ -34,7 +36,7 @@
 
 // Set Options
           const options = {
-            title:'BIỂU ĐỒ SỐ LƯỢNG BÌNH LUẬN TRONG DANH MỤC',
+            title:'SỐ LƯỢNG BÌNH LUẬN TRONG SẢN PHẨM',
             is3D:true
           };
 
@@ -48,9 +50,9 @@
     </div>
   </div>
   
-  <div class="row2">
+  <div >
     
-    <div class="row2 form_content ">
+    <div>
       <div
               id="myChart1" style="width:100%; width:800px; height:500px; align-items: center">
       </div>
@@ -82,7 +84,7 @@
 
 // Set Options
           const options = {
-            title:'BIỂU ĐỒ SỐ LƯỢNG SẢN PHẨM TRONG DANH MỤC',
+            title:'SỐ LƯỢNG SẢN PHẨM TRONG DANH MỤC',
             is3D:true
           };
 
