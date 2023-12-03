@@ -83,6 +83,14 @@ function tongdonhang(){
 }
     return $tong;
 }
+function tongdonhang1(){
+    global $img_path;
+    $tong=0;
+            foreach($_SESSION['mycart1'] as $cart){
+                $tong+=$cart[5]; 
+}
+    return $tong;
+}
 
 function insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang){
     $sql = "

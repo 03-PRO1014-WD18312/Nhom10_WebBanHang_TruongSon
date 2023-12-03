@@ -13,6 +13,9 @@
     if (!isset($_SESSION["mycart"])){
         $_SESSION["mycart"]=[];
     }
+    if (!isset($_SESSION["mycart1"])){
+        $_SESSION["mycart1"]=[];
+    }
     if (isset($_SESSION["user"])){
         $taikhoan=loadone_taikhoan($_SESSION['iduser']);
     }
@@ -119,6 +122,7 @@
             }
             if (isset($_POST["addtobill"])&&($_POST['addtobill'])) {
                     if(isset($_SESSION['user'])){
+                    $_SESSION["mycart1"]=[];
                     $id=$_POST['id'];
                     $name=$_POST['name'];
                     $img=$_POST['img'];
@@ -126,8 +130,8 @@
                     $soluong=1;
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
-                    array_push($_SESSION['mycart'],$spadd);
-                    include "view/cart/bill.php";
+                    array_push($_SESSION['mycart1'],$spadd);
+                    include "view/cart/bill1.php";
                 }else{
                     header("location:index.php?act=dangnhap");
                 }
@@ -188,6 +192,32 @@
                     $bill=loadone_bill($idbill);
                     $billct=loadall_cart($idbill);
                     include "view/cart/billconfirm.php";
+                    }else{
+                        echo "k hop le";
+                    }
+                
+            }
+            
+                break;
+            case "billconfirm1":
+                if (isset($_POST["dongydathang"])&&($_POST['dongydathang'])) {
+                    if(isset($_SESSION['user'])) { $iduser = $_SESSION['iduser']; }else{ $iduser = 0; }
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['pttt'];
+                    $ngaydathang = date('Y-m-d');
+                    $tongdonhang=tongdonhang1();
+                    if(!empty($name)&&!empty($email)&&!empty($address)&&!empty($tel)&&!empty($pttt)&&!empty($ngaydathang)&&($tongdonhang>0)){
+                    $idbill=insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+                    foreach($_SESSION['mycart1'] as $cart){
+                        insert_cart($_SESSION['iduser'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                    }
+                    $_SESSION["mycart1"]=[];
+                    $bill=loadone_bill($idbill);
+                    $billct=loadall_cart($idbill);
+                    include "view/cart/billconfirm1.php";
                     }else{
                         echo "k hop le";
                     }
