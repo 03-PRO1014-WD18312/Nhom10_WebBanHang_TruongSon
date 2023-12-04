@@ -1,8 +1,8 @@
 <?php extract($sanpham); ?>
 <div class="sanpham5">
             <div>
-            <?php $img = $img_path . $img;?>
-                <img src="<?php echo $img?>" alt="" width="550px" height="auto" style="border-radius: 20px; border:2px solid gray">
+            <?php $hinh = $img_path . $img;?>
+                <img src="<?php echo $hinh?>" alt="" width="550px" height="auto" style="border-radius: 20px; border:2px solid gray">
             </div>
             <div style="width: 550px;">
                 <h1><?php echo $name; ?></h1>
@@ -44,6 +44,7 @@
                                             <input type="hidden" name="name" value="<?php echo $name?>" >
                                             <input type="hidden" name="img" value="<?php echo $img?>" >
                                             <input type="hidden" name="price" value="<?php echo $price?>" >
+                                            <input type="number" name="soluong" value="1" >
                                             <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
                                             <input type="submit" name="addtobill" value="mua ngay">
                                        </div>

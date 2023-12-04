@@ -20,7 +20,7 @@
                     <div class="sanpham3">
                     
                         <form action="index.php?act=addtocart" method="post">
-                        
+                        <input type="hidden" name="soluong" value="1" >
                         <input type="hidden" name="id" value="'.$id.'" >
                         <input type="hidden" name="name" value="'.$name.'" >
                         <input type="hidden" name="img" value="'.$img.'" >

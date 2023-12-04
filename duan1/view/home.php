@@ -45,6 +45,7 @@
                                 <div class="sanpham3">
                                     <form class="formhome1" action="index.php?act=addtocart" method="post">
                                         <input type="hidden" name="id" value="'.$id.'" >
+                                        <input type="hidden" name="soluong" value="1" >
                                         <input type="hidden" name="name" value="'.$name.'" >
                                         <input type="hidden" name="img" value="'.$img.'" >
                                         <input type="hidden" name="price" value="'.$price.'" >
