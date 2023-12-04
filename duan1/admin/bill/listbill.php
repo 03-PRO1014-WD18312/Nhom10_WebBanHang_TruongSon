@@ -25,17 +25,22 @@
             <br>'.$bill_address.'
             <br>'.$bill_tel;
             $countsp=loadall_cart_count($id);
+            $countsl=0;
+            foreach($countsp as $count){
+                $countsl+=$count['soluong'];
+            }
             $ttdh=get_ttdh($bill_status);
             echo '<tr>
             <td><input type="checkbox" name="" id=""></td>
             <td>DAM-'.$id.'</td>
             <td>'.$kh.'</td>
-            <td>'.$countsp.'</td>
+            <td>'.$countsl.'</td>
             <td>'.$total.'</td>
             <td>'.$ttdh.'</td>
             <td>'.$ngaydathang.'</td>
             <td>
             <a href="index.php?act=suabill&&idbill='.$id.'"><input type="button" value="sua"></a>
+            <a href="index.php?act=chitietbill&&idbill='.$id.'"><input type="button" value="chitiet"></a>
              </td>
                 </tr>';
         }

@@ -57,11 +57,11 @@ function insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$idd
     pdo_execute($sql);
 }
 
-function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh){
+function update_sanpham($id,$iddm,$tensp,$giasp,$giacu,$mota,$material,$size,$quantity,$hinh){
     if($hinh!=""){
-        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
+        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`old_price`='$giacu',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
     }else{
-        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
+        $sql="UPDATE sanpham SET `name`='$tensp',`price`='$giasp',`old_price`='$giacu',`mota`='$mota',`img`='$hinh',`material`='$material',`quantity`='$quantity',`size`='$size',`iddm`='$iddm' where sanpham.`id`=$id";
     }
     pdo_execute($sql);
 }

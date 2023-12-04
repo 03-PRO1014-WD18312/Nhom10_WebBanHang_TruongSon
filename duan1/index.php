@@ -76,9 +76,9 @@
                 break ;
             case "dangnhap":
                 if (isset($_POST['dangnhap'])) {
-
-                    
                     $loginMess=dangnhap($_POST['user'], $_POST['pass']);
+                    $validateuser=validateuser($_POST['user']);
+                    $validatepass=validatepassword($_POST['pass']);
                        if(isset($_SESSION['user'])){
                             if($_SESSION['role']==1){
                                 header("location:admin/index.php");
@@ -108,13 +108,25 @@
                 if (isset($_POST["addtocart"])&&($_POST['addtocart'])) {
                     if(isset($_SESSION['user'])){
                     $id=$_POST['id'];
+                    $soluong=$_POST['soluong'];
+                    $product_exists = false;
+                    foreach ($_SESSION['mycart'] as &$item) {
+                        if ($item[0] == $id) {
+                            // Nếu sản phẩm đã tồn tại, cộng thêm vào số lượng
+                            $item[4] += $soluong;
+                            $item[5] = intval($item[4]) * intval($item[3]); // Cập nhật thành tiền
+                            $product_exists = true;
+                            break;
+                        }
+                    }
+                    if (!$product_exists) {
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart'],$spadd);
+                    }
                     include "view/cart/viewcart.php";
                 }else{
                     header("location:index.php?act=dangnhap");
@@ -127,7 +139,7 @@
                     $name=$_POST['name'];
                     $img=$_POST['img'];
                     $price=$_POST['price'];
-                    $soluong=1;
+                    $soluong=$_POST['soluong'];
                     $ttien=intval($soluong)*intval($price);
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
                     array_push($_SESSION['mycart1'],$spadd);

@@ -1,9 +1,10 @@
 <?php
+include "../model/taikhoan.php";
+if(isset($_SESSION['role'])&&($_SESSION['role']==1)){
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/thongke.php";
-include "../model/taikhoan.php";
 include "../model/binhluan.php";
 include "../model/cart.php";
     $dsdm = loadall_danhmuc();
@@ -42,9 +43,9 @@ include "../model/cart.php";
                     move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file);
                     if(!empty($iddm)&&!empty($tensp)&&!empty($giasp)&&!empty($mota)&&!empty($hinh)&&!empty($material)&&!empty($size)&&!empty($quantity)){  
                         insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm);
-                        echo "<p style='color:red'>ban da upload anh thanh cong</p>";
+                        echo "<p style='color:red'>ban da them moi thanh cong</p>";
                     }else{
-                        echo "<p style='color:red'>khong thanh cong</p>";
+                        echo "<p style='color:red'>thiếu trường dữ liệu</p>";
                     };
                     
                 }
@@ -68,24 +69,39 @@ include "../model/cart.php";
                     $id=$_POST['id'];
                     $tensp=$_POST['tensp'];
                     $giasp=$_POST['giasp'];
+                    $giacu=$_POST['oldgiasp'];
                     $mota=$_POST['mota'];
                     $material=$_POST['material'];
                     $size=$_POST['size'];
                     $quantity=$_POST['quantity'];
+                    if(!empty($_FILES['hinh']['name'])){
                     $hinh=$_FILES['hinh']['name'];
+                    }else{
+                        $hinh=$_POST['hinhcu'];
+                    }
                     $target_dir="../upload/";
                     $target_file=$target_dir.basename($_FILES['hinh']['name']);
                     if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
                         echo " Thành Công ";
                     }else{
-                        echo " Lỗi";
+                        echo "";
                     }
-                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$material,$size,$quantity,$hinh);
+                    if(!empty($iddm)&&$iddm!=""&&!empty($tensp)&&$tensp!=""&&!empty($giasp)&&$giasp!=""&&!empty($mota)&&$mota!=""&&!empty($material)&&$material!=""&&!empty($size)&&$size!=""&&!empty($quantity)&&$quantity!=""){
+                    update_sanpham($id,$iddm,$tensp,$giasp,$giacu,$mota,$material,$size,$quantity,$hinh);
                     $thongbao="Cập Nhật Thành Công";
-                }
-                $listdanhmuc=loadall_danhmuc();
+                    $listdanhmuc=loadall_danhmuc();
                 $listsanpham=loadall_sanpham();
                 include "sanpham/list.php";
+                    }else{
+                        echo "bạn đã nhập thiếu trường dữ liệu";
+                        if(isset($_GET['idsp'])&&($_GET['idsp'])>0){
+                            $sanpham=loadone_sanpham($_GET['idsp']);
+                        }
+                        $listdanhmuc=loadall_danhmuc();
+                        include "sanpham/update.php";
+                    }
+                }
+                
                 break;
                 
             case "hard_delete":
@@ -178,9 +194,9 @@ include "../model/cart.php";
                     $name=$_POST['name'];
                     if(!empty($name)){  
                         insert_danhmuc($name);
-                        echo "<p style='color:red'>ban da upload anh thanh cong</p>";
+                        echo "<p style='color:red'>ban da them danh muc thanh cong</p>";
                     }else{
-                        echo "<p style='color:red'>khong thanh cong</p>";
+                        echo "<p style='color:red'>vui long dien ten danh muc</p>";
                     };
                     
                 }
@@ -213,6 +229,13 @@ include "../model/cart.php";
                 // include "view/home.php";
                 header("location:../index.php");
                 break;
+            case "chitietbill":
+                if(isset($_GET['idbill'])&&($_GET['idbill'])>0){
+                    $chitietbill=loadall_sanpham_bill($_GET['idbill']);
+                }
+                include "bill/chitietbill.php";
+                break; 
+                
         }
     }else{
         $dsthongke=load_thongke_sanpham_danhmuc();
@@ -220,4 +243,8 @@ include "../model/cart.php";
         include "home.php";
     }
     include "footer.php";
+}else{
+    echo "<div style='text-align:center;color:red'><h1>you don't have permission</h1></div>";
+}
+
 ?>

@@ -14,7 +14,7 @@ if(is_file($hinhpath)){
           <h1>CẬP NHẬT SẢN PHẨM </h1>
          </div>
          <div class="row2 form_content ">
-          <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
+          <form action="index.php?act=updatesp&&idsp=<?=$id?>" method="POST" enctype="multipart/form-data">
           <div class="row2 mb10">
             <label>Danh mục </label> <br>
             <select name="iddm" id="">
@@ -43,6 +43,10 @@ if(is_file($hinhpath)){
             <input type="text" name="giasp" value="<?php echo $price ?>">
            </div>
            <div class="row2 mb10">
+            <label>Giá Cũ </label> <br>
+            <input type="text" name="oldgiasp" value="<?php echo $price ?>" hidden>
+           </div>
+           <div class="row2 mb10">
             <label>chat lieu</label> <br>
             <input type="text" name="material" value="<?php echo $material ?>">
            </div>
@@ -61,6 +65,7 @@ if(is_file($hinhpath)){
            </div>
            <div class="row mb10 ">
          <input type="hidden" name="id" value="<?=$id?>">
+         <input type="text" name="hinhcu" value="<?php echo $img ?>" hidden>
          <input class="mr20" name="capnhat" type="submit" value="CẬP NHẬT">
          <input  class="mr20" type="reset" value="NHẬP LẠI">
 
