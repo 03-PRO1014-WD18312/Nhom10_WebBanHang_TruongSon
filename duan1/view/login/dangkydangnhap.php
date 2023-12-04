@@ -90,8 +90,11 @@
                     <a href="#"><i class="bi bi-telephone-fill"></i></a>
                 </div>
                 <span>Sử Dụng Tài Khoản</span>
-                    <input type="text" placeholder="name" name="user" >
+                    <input type="text" placeholder="name" name="user" > <?php if(isset($validateuser))
+                    {echo $validateuser;} ?>
                     <input type="password" placeholder="mật khẩu" name="pass" >
+                    <?php if(isset($validatepass))
+                    {echo $validatepass;} ?>
                     <input type="submit" value="Đăng nhập" name="dangnhap">
                     <a href="index.php?act=quenmk">Bạn Quên Mật Khẩu</a>
                     <?php if(isset($loginMess))

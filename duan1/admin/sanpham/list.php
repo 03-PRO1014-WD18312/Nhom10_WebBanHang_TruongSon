@@ -27,7 +27,6 @@
                 <th>Chất Liệu</th>
                 <th>Giá</th>
                 <th>Hinh Ảnh</th>
-                <th>Lượt Xem</th>
                 <th>Số Lượng</th>
                 <th>Só Lượng Bình Luận</th>
                 <th>Thao tác</th>
@@ -51,7 +50,6 @@
                 <td>'.$material.'</td>
                 <td>'.$price.'VNĐ</td>
                 <td>'.$hinhpath.'</td>
-                <td>'.$luotxem.'</td>
                 <td>'.$quantity.'</td>
                 <td>'.$soBinhLuan.'</td>
                 <td>

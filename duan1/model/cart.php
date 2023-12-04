@@ -83,6 +83,14 @@ function tongdonhang(){
 }
     return $tong;
 }
+function tongdonhang1(){
+    global $img_path;
+    $tong=0;
+            foreach($_SESSION['mycart1'] as $cart){
+                $tong+=$cart[5]; 
+}
+    return $tong;
+}
 
 function insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang){
     $sql = "
@@ -122,11 +130,19 @@ function loadall_cart($idbill){
     $bill = pdo_query($sql);
     return $bill;
 }
+function loadall_sanpham_bill($idbill){
+    $sql = "select cart.soluong,sanpham.name,sanpham.img from `cart`
+    join `sanpham` on cart.idpro=sanpham.id
+    where idbill = $idbill";
+    $bill = pdo_query($sql);
+    return $bill;
+}
 function loadall_cart_count($idbill){
     $sql = "select * from cart where idbill = $idbill";
     $bill = pdo_query($sql);
-    return sizeof($bill);
+    return $bill;
 }
+
 function loadall_bill($kyw="",$iduser){
 
     $sql="select * from bill where 1";

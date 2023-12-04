@@ -23,10 +23,28 @@ function loadone_taikhoan($id){
    $sql ="INSERT INTO `taikhoan`(`user`,`pass`,`email`,`role`) VALUES ('$username','$pass','$email',1);";
    pdo_execute($sql);
 }
- 
+function validateuser($user){
+   $sql="SELECT * FROM taikhoan where user='$user' ;";
+   $taikhoan=pdo_query_one($sql);
+   if($taikhoan!=false){
+      return "";
+   }else{
+      return "Thông Tin Tài Khoan Không Đúng";
+   }
+ }
+ function validatepassword($pass){
+   $sql="SELECT * FROM taikhoan where pass='$pass' ;";
+   $matkhau=pdo_query_one($sql);
+   if($matkhau!=false){
+      return "";
+   }else{
+      return "Thông Tin mật khẩu Không Đúng";
+   }
+ }
  function dangnhap($user,$pass){
    $sql="SELECT * FROM taikhoan where user='$user' and pass='$pass';";
    $taikhoan=pdo_query_one($sql);
+   if(validateuser($user)==""&&validatepassword($pass)==""){
    if($taikhoan!=false){
       extract($taikhoan);
       $_SESSION['user']=$user;
@@ -40,7 +58,11 @@ function loadone_taikhoan($id){
    }else{
       return "Thông Tin Tài Khoan Không Đúng";
    }
+}else{
+   return "";
+}
  }
+
  function dangxuat(){
    if(isset($_SESSION['user'])){
       unset($_SESSION['user']);
