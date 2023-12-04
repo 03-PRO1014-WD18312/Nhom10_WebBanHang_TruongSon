@@ -10,6 +10,7 @@
                 <th>Thành Tiền</th>
                 <th>Phương Thức Thanh Toán</th>
                 <th>Trạng Thái</th>
+                <th>THAO TAC</th>
             </tr>
             </thead>
             <?php
@@ -17,14 +18,19 @@
                     foreach($listbill as $bill){
                         $ttdh=get_ttdh($bill["bill_status"]);
                         $countsp=loadall_cart_count($bill['id']);
+                        $countsl=0;
+                        foreach($countsp as $count){
+                            $countsl+=$count['soluong'];
+                        }
                         $pttt=get_pttt($bill['bill_pttt']);
                         echo '  <tr>
                                     <th>dam'.$bill['id'].'</th>
                                     <th>'.$bill['ngaydathang'].'</th>
-                                    <th>'.$countsp.'</th>
+                                    <th>'.$countsl.'</th>
                                     <th>'.$bill['total'].'</th>
                                     <th>'.$pttt.'</th>
                                     <th>'.$ttdh.'</th>
+                                    <th><a href="index.php?act=chitietbillnguoidung&&idbill='.$bill['id'].'"><input type="button" value="chitiet"></a></th>
                                 </tr>';
                 }
             }

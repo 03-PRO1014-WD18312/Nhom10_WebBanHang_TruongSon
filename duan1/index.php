@@ -272,6 +272,12 @@
                 $taikhoan=loadone_taikhoan($_SESSION['iduser']);
                 include "view/login/dangkydangnhap.php";
                 break;
+            case "chitietbillnguoidung":
+                if(isset($_GET['idbill'])&&($_GET['idbill'])>0){
+                    $chitietbill=loadall_sanpham_bill($_GET['idbill']);
+                }
+                include "view/cart/chitietbillnguoidung.php";
+                break; 
             }
             
     }else{
