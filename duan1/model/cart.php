@@ -162,13 +162,13 @@ function get_ttdh($n){
             $tt="Đang Chuẩn Bị Hàng";
             break;
         case '1':
-        $tt="Đã NHận Hàng";
+        $tt="Đã Giao Hàng";
         break;
         case '2':
             $tt="Đang Giao Hàng";
             break;
         case '3':
-        $tt="Đã Giao Hàng";
+        $tt="Huỷ";
         break;
         default:
         $tt= "Đang Chuẩn Bị Hàng";

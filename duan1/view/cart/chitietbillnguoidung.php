@@ -6,9 +6,9 @@
     <table border="1">
         <tr>
             <th></th>
-            <th>anh san pham</th>
-            <th>TEN SAN PHAM</th>
-            <th>SO LUONG MUA</th>
+            <th>Ảnh Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Số Lượng Mua</th>
         </tr>
         <?php
         foreach($chitietbill as $bill){
@@ -24,5 +24,5 @@
         ?>
         
     </table>
-    <a href="index.php?act=mybill"><input type="button" value="thoat"></a>
+    <a href="index.php?act=mybill"><input type="button" value="Quay Lại"></a>
 </div>

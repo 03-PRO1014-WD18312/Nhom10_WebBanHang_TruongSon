@@ -2,7 +2,7 @@
 if(isset($bill)){
     extract($bill);
 }
-
+$ttdh=get_ttdh($bill_status);
 ?>
 <div class="row2">
          <div class="row2 font_title">
@@ -13,7 +13,13 @@ if(isset($bill)){
           
            <div class="row2 mb10 form_content_container">
            <label> tinh trang bill </label> <br>
-            <input type="number" name="bill_status" value="<?php echo $bill_status ?>">
+           <select name="bill_status" id="">
+            <option value="<?php echo $bill_status ?>" selected><?php echo $ttdh ?></option>
+            <option value="1">đã giao hàng</option>
+            <option value="2">đang giao hàng</option>
+            <option value="3">huỷ</option>
+           </select>
+
            </div>
            <div class="row mb10 ">
          <input type="hidden" name="id" value="<?=$id?>">
