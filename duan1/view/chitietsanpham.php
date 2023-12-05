@@ -32,7 +32,7 @@
                                         <h4>Số Lượng:</h4>
                                     </div>
                                     <div>
-                                        <input type="number" min="1" name="quantity" value="1" style="border-radius: 10%;border: 3px solid gray;" >
+                                        <input type="number" name="soluong" min="1" value="1" style="border-radius: 10%;border: 3px solid gray;" >
                                     </div>
                                     <div class="quantity">
                                         <h5>Sản Phẩm Còn : <?php echo $quantity ?></h5>
@@ -44,7 +44,7 @@
                                             <input type="hidden" name="name" value="<?php echo $name?>" >
                                             <input type="hidden" name="img" value="<?php echo $img?>" >
                                             <input type="hidden" name="price" value="<?php echo $price?>" >
-                                            <input type="number" name="soluong" value="1" >
+                                            
                                             <input type="submit" name="addtocart" value="Thêm Vào Giỏ Hàng">
                                             <input type="submit" name="addtobill" value="mua ngay">
                                        </div>

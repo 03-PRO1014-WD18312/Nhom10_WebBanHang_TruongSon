@@ -30,7 +30,7 @@
                                     <th>'.$bill['total'].'</th>
                                     <th>'.$pttt.'</th>
                                     <th>'.$ttdh.'</th>
-                                    <th><a href="index.php?act=chitietbillnguoidung&&idbill='.$bill['id'].'"><input type="button" value="chitiet"></a></th>
+                                    <th><a href="index.php?act=chitietbillnguoidung&&idbill='.$bill['id'].'"><input type="button" value="Xem Chi Tiết"></a></th>
                                 </tr>';
                 }
             }
