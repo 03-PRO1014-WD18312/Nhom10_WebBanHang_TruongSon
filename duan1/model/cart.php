@@ -131,8 +131,9 @@ function loadall_cart($idbill){
     return $bill;
 }
 function loadall_sanpham_bill($idbill){
-    $sql = "select cart.soluong,sanpham.name,sanpham.img from `cart`
+    $sql = "select cart.soluong,sanpham.name,sanpham.img,taikhoan.name as 'nametk',taikhoan.address,taikhoan.tel,taikhoan.email, taikhoan.id from `cart`
     join `sanpham` on cart.idpro=sanpham.id
+    join `taikhoan` on cart.iduser=taikhoan.id
     where idbill = $idbill";
     $bill = pdo_query($sql);
     return $bill;
