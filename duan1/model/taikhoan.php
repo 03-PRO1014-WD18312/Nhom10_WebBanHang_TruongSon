@@ -11,6 +11,11 @@ session_start();
       $sql="UPDATE taikhoan SET `name`='$tentk',`pass`='$pass',`email`='$email',`address`='$address',`tel`='$tel' where `id`=$id";
       }
    pdo_execute($sql);
+      $_SESSION['name']=$tentk;
+      $_SESSION['email'] = $email;
+      $_SESSION['address']=$address;
+      $_SESSION['tel']=$tel;
+      $_SESSION['img']=$hinh;
 }
 function loadone_taikhoan($id){
    $sql = "select * from taikhoan where id = $id";
@@ -73,6 +78,7 @@ function validateuser($user){
       unset($_SESSION['tel']);
       unset($_SESSION['role']);
       unset($_SESSION['img']);
+      unset($_SESSION['mycart']);
    }
  }
  function sendMail($email){

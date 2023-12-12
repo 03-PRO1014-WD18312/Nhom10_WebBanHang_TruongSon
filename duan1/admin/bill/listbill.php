@@ -39,7 +39,7 @@
             <td>'.$ttdh.'</td>
             <td>'.$ngaydathang.'</td>
             <td>
-            <a href="index.php?act=suabill&&idbill='.$id.'"><input type="button" value="sua"></a>
+            <a href="index.php?act=suabill&&idbill='.$id.'"><input type="button" value="Sửa"></a>
             <a href="index.php?act=chitietbill&&idbill='.$id.'"><input type="button" value="Xem Chi Tiết"></a>
              </td>
                 </tr>';

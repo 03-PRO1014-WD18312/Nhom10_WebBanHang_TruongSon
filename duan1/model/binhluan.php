@@ -23,11 +23,12 @@
         $sql="DELETE FROM binhluan where id='$idbl'";
     
     pdo_execute($sql);
+    }
     function delete_taikhoan($idtk){
         $sql="DELETE FROM taikhoan where id='$idtk'";
     
     pdo_execute($sql);
     }
-    }
+    
 
 ?>

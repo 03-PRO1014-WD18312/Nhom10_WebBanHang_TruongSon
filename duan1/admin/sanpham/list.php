@@ -20,7 +20,6 @@
             </form>
            <table border="1">
            <tr>
-                <th></th>
                 <th>Mã SP</th>
                 <th>Tên Sản Phẩm</th>
                 <th>Kích Cỡ</th>
@@ -43,7 +42,6 @@
                     $hinhpath="no file img!";
                 };
                 echo '<tr>
-                <td><input type="checkbox" name="" id=""></td>
                 <td>'.$id.'</td>
                 <td>'.$name.'</td>
                 <td>'.$size.'</td>

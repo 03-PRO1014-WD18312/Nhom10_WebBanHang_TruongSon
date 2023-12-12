@@ -205,7 +205,8 @@
                     $billct=loadall_cart($idbill);
                     include "view/cart/billconfirm.php";
                     }else{
-                        echo "k hop le";
+                        echo "<div style='text-align:center;'><p style='color:red'>Bạn Để Thiếu Thông Tin , Vào Phần Quản Lý Tài Khoản Để Thêm Thông Tin</p></div>";
+
                     }
                 
             }
@@ -258,12 +259,12 @@
                     $target_dir="upload/";
                     $target_file=$target_dir.basename($_FILES['hinh']['name']);
                     if(move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file)){
-                        echo " Thành Công ";
+                        echo "";
                     }else{
-                        echo " Lỗi";
+                        echo "";
                     }
                     update_taikhoan($id,$name,$pass,$email,$address,$tel,$hinh);
-                    $thongbao="Cập Nhật Thành Công";
+                    $thongbao="<div style='color :green;'>Cập Nhật Thành Công</div>";
                     
                 }
                 }

@@ -19,6 +19,7 @@
         <ul class="nav-menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php?act=listsp">Sản Phẩm</a></li>
+            <li><a href="index.php?act=listdm">Danh Mục</a></li>
             <li><a href="index.php?act=listbill">Đơn Hàng</a></li>
             <li><a href="index.php?act=thongke">Thống kê</a></li>
             <li><a href="index.php?act=thongkebl"> Bình Luận</a></li>
