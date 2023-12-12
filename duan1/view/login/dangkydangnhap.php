@@ -47,7 +47,11 @@
                       <input type="submit" name="updatetk" value="update">
                         <input type="hidden" name="id" value="<?=$id?>">
                         <a href="index.php?act=dangxuat"><input  class="mr20" type="button" value="Đăng Xuất"></a>
-                      
+                        <?php
+           if(isset($thongbao)){
+            echo $thongbao;
+           }
+           ?>
                     </form>
                     </div>
                    </div>

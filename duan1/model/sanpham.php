@@ -22,7 +22,7 @@ function loadall_sanpham($keyw="",$iddm=0){
         $sql.=" and iddm ='".$iddm."'";
     }
     $sql.=" group by sanpham.id";
-    $sql.=" order by sanpham.id asc";
+    $sql.=" order by sanpham.id desc";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }

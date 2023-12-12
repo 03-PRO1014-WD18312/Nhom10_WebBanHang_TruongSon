@@ -43,9 +43,9 @@ include "../model/cart.php";
                     move_uploaded_file($_FILES['hinh']['tmp_name'],$target_file);
                     if(!empty($iddm)&&!empty($tensp)&&!empty($giasp)&&!empty($mota)&&!empty($hinh)&&!empty($material)&&!empty($size)&&!empty($quantity)){  
                         insert_sanpham($tensp,$giasp,$hinh,$mota,$material,$size,$quantity,$iddm);
-                        echo "<p style='color:red'>ban da them moi thanh cong</p>";
+                        $thongbao= "<p style='color:green'>Bạn Đã Thêm Thanh Công</p>";
                     }else{
-                        echo "<p style='color:red'>thiếu trường dữ liệu</p>";
+                        $thongbao=  "<p style='color:red'>Bạn Nhập Thiếu Dữ liệu</p>";
                     };
                     
                 }
@@ -194,12 +194,13 @@ include "../model/cart.php";
                     $name=$_POST['name'];
                     if(!empty($name)){  
                         insert_danhmuc($name);
-                        echo "<p style='color:red'>ban da them danh muc thanh cong</p>";
+                        $thongbao= "<p style='color:green'>Bạn Đã Thêm Thành Công</p>";
                     }else{
-                        echo "<p style='color:red'>vui long dien ten danh muc</p>";
+                        $thongbao= "<p style='color:red'>Bạn Chưa Nhập Dữ Liệu</p>";
                     };
                     
                 }
+                include "danhmuc/add.php";
                 break;
             case "suadm":
                 if(isset($_GET['iddm'])&&($_GET['iddm'])>0){
